@@ -1,0 +1,28 @@
+<svg width="68" height="68" viewBox="0 0 68 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+<foreignObject x="-7.26596" y="-11.266" width="82.528" height="82.528"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(5.63px);clip-path:url(#bgblur_0_226_14422_clip_path);height:100%;width:100%"></div></foreignObject><g filter="url(#filter0_d_226_14422)" data-figma-bg-blur-radius="11.266">
+<rect x="4" width="59.9961" height="59.9961" fill="white" fill-opacity="0.1" shape-rendering="crispEdges"/>
+<rect x="4.5" y="0.5" width="58.9961" height="58.9961" stroke="white" shape-rendering="crispEdges"/>
+<g clip-path="url(#clip1_226_14422)">
+<path d="M19.9126 15.4427C19.5045 15.9821 19.2773 16.6455 19.2773 17.3554V45.4559C19.2773 46.1154 19.474 46.7349 19.8293 47.2523L35.119 31.3042L19.9126 15.4427Z" fill="white"/>
+<path d="M36.5161 29.8436L41.4763 24.6699L24.0406 14.6035C23.2839 14.1665 22.4156 14.0629 21.6055 14.2906L36.5161 29.8436Z" fill="white"/>
+<path d="M36.5183 32.7644L21.457 48.4744C21.7818 48.5835 22.1178 48.6384 22.4541 48.6384C22.9997 48.6384 23.5456 48.4949 24.0428 48.2077L41.6039 38.0688L36.5183 32.7644Z" fill="white"/>
+<path d="M48.3779 28.6538L43.2805 25.7107L37.918 31.3038L43.4056 37.0281L48.3779 34.1573C49.3729 33.583 49.9669 32.5541 49.9669 31.4056C49.9669 30.2568 49.3729 29.2281 48.3779 28.6538Z" fill="white"/>
+</g>
+</g>
+<defs>
+<filter id="filter0_d_226_14422" x="-7.26596" y="-11.266" width="82.528" height="82.528" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="4"/>
+<feGaussianBlur stdDeviation="2"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_226_14422"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_226_14422" result="shape"/>
+</filter>
+<clipPath id="bgblur_0_226_14422_clip_path" transform="translate(7.26596 11.266)"><rect x="4" width="59.9961" height="59.9961"/>
+</clipPath><clipPath id="clip1_226_14422">
+<rect width="34.3975" height="34.4648" fill="white" transform="translate(17.3594 14.1733)"/>
+</clipPath>
+</defs>
+</svg>

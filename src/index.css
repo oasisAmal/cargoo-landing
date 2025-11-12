@@ -1,0 +1,249 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    @apply relative min-h-screen bg-[rgba(245,245,245,1)] antialiased;
+    font-family: "MadaniArabic";
+}
+
+.ReactModal__Overlay {
+    @apply scrollbar-hide !inset-auto !left-0 !top-0 z-[1000] flex !h-screen !w-screen items-start justify-center overflow-auto !bg-[rgba(0,0,0,0.5)] !p-2 xl:!p-10;
+}
+.ReactModal__Content {
+    @apply !static !my-auto !min-w-[clamp(300px,90%,650px)] !rounded-xl !border-none !p-5 !shadow-[0px_1px_3px_0px_rgba(0,0,0,0.1)] max-sm:!w-full sm:!p-10;
+}
+
+.scroll::-webkit-scrollbar {
+    width: 3px;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+.scroll-y::-webkit-scrollbar {
+    height: 3px;
+}
+
+.scroll-y::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+.swiper-slide {
+    @apply !h-auto;
+}
+
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.swiper-scrollbar {
+    width: 93px !important;
+    height: 5px !important;
+    background-color: white !important;
+    border-radius: 100px !important;
+    margin-inline: auto !important;
+    display: block !important;
+    left: 0;
+    right: 0;
+    bottom: 34px !important;
+}
+
+.swiper-scrollbar-drag {
+    background-color: rgba(10, 76, 38, 1) !important;
+}
+
+.swiper-pagination-bullet {
+    @apply border-[1.75px] border-[rgba(245,245,245,1)] max-xl:!mx-1 max-xl:!size-[10px];
+}
+.swiper-pagination-bullet-active {
+    @apply !size-[15px] xl:!size-[21px];
+}
+.swiper-pagination {
+    @apply flex items-center justify-center;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    content: "" !important;
+}
+.swiper-slide {
+    -webkit-backface-visibility: hidden !important;
+    backface-visibility: hidden !important;
+    -webkit-transform: translate3d(0, 0, 0) !important;
+    transform: translate3d(0, 0, 0) !important;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translate3d(0, 0, 0);
+}
+
+.swiper-wrapper {
+    -webkit-transform-style: preserve-3d !important;
+    transform-style: preserve-3d !important;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield; /* Firefox */
+    appearance: textfield; /* Safari and Chrome */
+}
+
+.reset-tw,
+.reset-tw * {
+    all: revert !important;
+}
+
+@font-face {
+    font-family: "MadaniArabic";
+    src: url("/public/font/MadaniArabic-Bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "MadaniArabic";
+    src: url("/public/font/MadaniArabic-Black.ttf") format("truetype");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "MadaniArabic";
+    src: url("/public/font/MadaniArabic-ExtraBold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "MadaniArabic";
+    src: url("/public/font/MadaniArabic-ExtraLight.ttf") format("truetype");
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "MadaniArabic";
+    src: url("/public/font/MadaniArabic-Light.ttf") format("truetype");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "MadaniArabic";
+    src: url("/public/font/MadaniArabic-Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "MadaniArabic";
+    src: url("/public/font/MadaniArabic-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "MadaniArabic";
+    src: url("/public/font/MadaniArabic-SemiBold.ttf") format("truetype");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "MadaniArabic";
+    src: url("/public/font/MadaniArabic-Thin.ttf") format("truetype");
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "MadaniArabicVariable";
+    src: url("/public/font/MadaniArabicVariable.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+.clip-bottom-shape {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 66% 100%, 64% 96%, 0 96%);
+}
+
+.clip-top-shape {
+  clip-path: polygon(
+    0 0,
+    20% 0,
+    22% 4%,
+    100% 4%,
+    100% 100%,
+    0 100%
+  )
+}
+
+.clip-top-shape1 {
+  clip-path: polygon(
+    100% 0,     
+    61% 0,      
+    58% 2%,     
+    0 2%,       
+    0 100%,     
+    100% 100%   
+  );
+}
+
+
+/* .clip-bottom-shape {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 90% 100%, 85% 95%, 0 95%);
+} */
+
+/* Light */
+@font-face {
+  font-family: 'Stan Grotesk';
+  src: url('/public/font/SpaceGrotesk-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+/* Regular */
+@font-face {
+  font-family: 'Stan Grotesk';
+  src: url('/public/font/SpaceGrotesk-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Medium */
+@font-face {
+  font-family: 'Stan Grotesk';
+  src: url('/public/font/SpaceGrotesk-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* Semibold */
+@font-face {
+  font-family: 'Stan Grotesk';
+  src: url('/public/font/SpaceGrotesk-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+/* Bold */
+@font-face {
+  font-family: 'Stan Grotesk';
+  src: url('/public/font/SpaceGrotesk-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
