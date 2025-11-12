@@ -471,11 +471,17 @@ const HeroSection: React.FC = () => {
                 </div>
 
                 <div className="flex justify-center sm:justify-end">
-                    <img
-                        src="/cargo/herosection/whatsapp_logo.svg"
-                        alt="Whatsapp"
-                        className="h-10 w-auto cursor-pointer transition-transform hover:scale-105 sm:h-12 md:h-14"
-                    />
+                    <a
+                        href="https://wa.me/97125630364"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <img
+                            src="/cargo/herosection/whatsapp_logo.svg"
+                            alt="Whatsapp"
+                            className="h-10 w-auto cursor-pointer transition-transform hover:scale-105 sm:h-12 md:h-14"
+                        />
+                    </a>
                 </div>
             </div>
         </section>
