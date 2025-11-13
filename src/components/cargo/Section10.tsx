@@ -1,20 +1,30 @@
 import React from "react";
 
 const logos = [
-    "/cargo/section10/partner1.svg",
-    "/cargo/section10/partner2.svg",
-    "/cargo/section10/partner3.png",
-    "/cargo/section10/partner4.svg",
-    "/cargo/section10/partner5.png",
-    "/cargo/section10/partner5.svg",
-    "/cargo/section10/partner6.svg",
+    "/cargo/section10/section10_partner1.svg",
+    "/cargo/section10/section10_partner2.svg",
+    "/cargo/section10/section10_partner3.svg",
+    "/cargo/section10/section10_partner4.svg",
+    "/cargo/section10/section10_partner5.svg",
+    "/cargo/section10/section10_partner6.svg",
+    "/cargo/section10/section10_partner7.svg",
+    "/cargo/section10/section10_partner8.png",
+    "/cargo/section10/section10_partner9.png",
+    "/cargo/section10/section10_partner10.png",
 ];
 
 const Section10: React.FC = () => {
     return (
-        <section className="relative flex min-h-[400px] w-full flex-col items-center justify-center overflow-hidden bg-white font-stan">
+        <section
+            style={{
+                clipPath:
+                    "polygon(0 0, 59% 0, 62% 5%, 100% 5%, 100% 100%, 0 100%)",
+            }}
+            className="relative flex min-h-[400px] w-full flex-col items-center justify-center overflow-hidden bg-white font-stan"
+        >
             {/* Title */}
-            <p className="mb-2 flex items-center justify-center gap-2 text-sm font-semibold text-gray-700 sm:text-base">
+            <span className="block h-32 w-full bg-white"></span>
+            <p className="mb-8 flex items-center justify-center gap-2 text-xs font-semibold text-[#64748B] sm:text-sm">
                 <img
                     src="/cargo/herosection/right_arrow_color.svg"
                     alt="colored arrow"
@@ -22,37 +32,24 @@ const Section10: React.FC = () => {
                 />
                 TRUSTED BY
             </p>
-            <p className="mb-10 text-xl font-bold text-gray-900 sm:text-3xl">
+            <p className="mb-10 pb-16 text-xl font-bold text-gray-900 sm:text-3xl">
                 OUR PARTNERS
             </p>
 
             {/* Scrolling Logos */}
             <div className="relative w-full overflow-hidden">
-                <div className="flex w-[200%] animate-scrollLeft">
-                    {/* First copy of logos */}
-                    <div className="flex w-1/2 items-center justify-around gap-8 sm:gap-16 px-5 sm:px-10">
-                        {logos.map((logo, i) => (
-                            <img
-                                key={`logo1-${i}`}
-                                src={logo}
-                                alt={`partner-${i}`}
-                                className="h-10 w-auto sm:h-16 md:h-20 object-contain opacity-80 transition hover:opacity-100"
-                            />
-                        ))}
-                    </div>
-                    {/* Second copy for seamless loop */}
-                    <div className="flex w-1/2 items-center justify-around gap-8 sm:gap-16 px-5 sm:px-10">
-                        {logos.map((logo, i) => (
-                            <img
-                                key={`logo2-${i}`}
-                                src={logo}
-                                alt={`partner-${i}`}
-                                className="h-10 w-auto sm:h-16 md:h-20 object-contain opacity-80 transition hover:opacity-100"
-                            />
-                        ))}
-                    </div>
+                <div className="animate-scrollLeft flex w-max">
+                    {[...logos, ...logos].map((logo, i) => (
+                        <img
+                            key={`logo-${i}`}
+                            src={logo}
+                            alt={`partner-${i}`}
+                            className="sm:h-18 mx-10 h-16 w-auto object-contain opacity-80 transition hover:opacity-100 md:h-20 lg:h-24"
+                        />
+                    ))}
                 </div>
             </div>
+            <span className="block h-32 w-full bg-white"></span>
         </section>
     );
 };

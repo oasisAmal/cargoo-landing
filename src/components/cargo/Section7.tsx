@@ -2,9 +2,11 @@ import React from "react";
 
 const Section7: React.FC = () => {
     return (
-        <section className="relative flex flex-col items-center justify-center bg-white px-20 py-20 font-stan md:flex-row">
+        <section
+            className="section7 relative mx-20 my-20 flex flex-col items-center justify-center bg-white font-stan md:flex-row"
+        >
             {/* Left content */}
-            <div className="flex w-full flex-col items-start bg-[#282A2C] p-6 py-20 md:w-2/5 md:px-12 m-4">
+            <div className="m-4 flex w-full flex-col items-start bg-[#282A2C] p-6 py-20 md:w-2/5 md:px-12">
                 <p className="mb-4 flex items-center gap-2 text-lg font-semibold text-white">
                     <img
                         src="/cargo/herosection/right_arrow_color.svg"
@@ -14,7 +16,7 @@ const Section7: React.FC = () => {
                     OUR FOOTPRINTS
                 </p>
 
-                <p className="mb-6 text-3xl font-bold text-white sm:text-4xl pb-12">
+                <p className="mb-6 pb-12 text-3xl font-bold text-white sm:text-4xl">
                     Our Global Foot <br /> Prints in Numbers
                 </p>
 

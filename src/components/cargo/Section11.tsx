@@ -1,7 +1,33 @@
-import React from "react";
+import React, { useRef } from "react";
+import emailjs from "emailjs-com";
 
 const Section11: React.FC = () => {
-    
+    const formRef = useRef<HTMLFormElement>(null);
+
+    const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+
+        if (!formRef.current) return;
+
+        emailjs
+            .sendForm(
+                "service_00s1hky",
+                "template_v60579w",
+                formRef.current,
+                "RrI8_5Wz07X95nN9G",
+            )
+            .then(
+                (result) => {
+                    alert("Quote request sent successfully!");
+                    formRef.current?.reset();
+                },
+                (error) => {
+                    alert("Failed to send. Please try again.");
+                    console.error(error);
+                },
+            );
+    };
+
     return (
         <section
             className="relative flex h-auto min-h-[600px] w-full flex-col overflow-hidden font-stan md:h-[600px] md:flex-row"
@@ -12,7 +38,9 @@ const Section11: React.FC = () => {
                 alt="Logistics"
                 className="absolute inset-0 h-full w-full object-cover"
             />
+
             <div className="z-2 relative flex h-full w-full flex-col md:flex-row">
+                {/* Left Side: FAQ */}
                 <div className="flex w-full flex-col justify-center px-6 py-12 text-white sm:px-10 md:w-2/3 md:px-16 md:py-20">
                     <p className="mb-4 flex w-full items-center justify-center gap-2 text-center text-lg font-bold text-white sm:justify-start sm:text-xl">
                         <img
@@ -41,10 +69,15 @@ const Section11: React.FC = () => {
                     </div>
                 </div>
 
+                {/* Right Side: Quote Form */}
                 <div className="relative flex w-full items-center justify-center md:w-1/3">
                     <div className="absolute inset-0 bg-black/40 backdrop-blur-md md:bg-black/30"></div>
 
-                    <form className="relative z-10 w-full max-w-md space-y-4 px-6 py-10 text-white sm:px-10 sm:py-12 md:px-6 md:py-12">
+                    <form
+                        ref={formRef}
+                        onSubmit={sendEmail}
+                        className="relative z-10 w-full max-w-md space-y-4 px-6 py-10 text-white sm:px-10 sm:py-12 md:px-6 md:py-12"
+                    >
                         <h1 className="mb-4 font-stan text-3xl font-bold sm:text-4xl md:text-5xl">
                             Get a Quote
                         </h1>
@@ -55,23 +88,36 @@ const Section11: React.FC = () => {
 
                         <input
                             type="text"
+                            name="user_name"
                             placeholder="Your Name"
+                            required
                             className="w-full border border-white bg-transparent px-4 py-2 text-sm text-white placeholder-gray-200 sm:text-base"
                         />
                         <input
                             type="email"
+                            name="user_email"
                             placeholder="Your Email"
+                            required
                             className="w-full border border-white bg-transparent px-4 py-2 text-sm text-white placeholder-gray-200 sm:text-base"
                         />
                         <input
                             type="tel"
+                            name="user_phone"
                             placeholder="Your Number"
+                            required
                             className="w-full border border-white bg-transparent px-4 py-2 text-sm text-white placeholder-gray-200 sm:text-base"
                         />
                         <textarea
+                            name="message"
                             placeholder="Your Message"
                             className="w-full resize-none border border-white bg-transparent px-4 py-2 text-sm text-white placeholder-gray-200 sm:text-base"
                             rows={4}
+                            required
+                        />
+                        <input
+                            type="hidden"
+                            name="recipient_email"
+                            value="n.alyafeai@ogms.ae"
                         />
 
                         <button

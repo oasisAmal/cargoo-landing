@@ -177,9 +177,6 @@ input[type="number"] {
     font-display: swap;
 }
 
-.clip-bottom-shape {
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 66% 100%, 64% 96%, 0 96%);
-}
 
 .clip-top-shape {
   clip-path: polygon(
@@ -190,17 +187,6 @@ input[type="number"] {
     100% 100%,
     0 100%
   )
-}
-
-.clip-top-shape1 {
-  clip-path: polygon(
-    100% 0,     
-    61% 0,      
-    58% 2%,     
-    0 2%,       
-    0 100%,     
-    100% 100%   
-  );
 }
 
 
@@ -246,4 +232,38 @@ input[type="number"] {
   src: url('/public/font/SpaceGrotesk-Bold.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
+}
+
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scrollLeft {
+  animation: scrollLeft 30s linear infinite;
+}
+
+@media (min-width: 768px) {
+  .clip-bottom-shape {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 66% 100%, 64% 96%, 0 96%);
+  }
+  .footer {
+    clip-path: polygon(100% 0px, 62% 0px, 60% 5%, 0px 5%, 0px 100%, 100% 100%);
+  }
+.clip-top-shape1 {
+  clip-path: polygon(
+    100% 0,     
+    61% 0,      
+    58% 2%,     
+    0 2%,       
+    0 100%,     
+    100% 100%   
+  );
+}
+.section7{clip-path: polygon(0 0, 100% 0, 100% 85%, 90% 100%, 0 100%),
+            }
 }

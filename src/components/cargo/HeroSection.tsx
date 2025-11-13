@@ -459,13 +459,13 @@ const HeroSection: React.FC = () => {
                                 target.scrollIntoView({ behavior: "smooth" });
                             }
                         }}
-                        className="relative mt-4 rounded-full border border-white bg-transparent px-5 py-2 text-xs text-white transition hover:border-transparent hover:bg-[#00B9EC] sm:px-8 sm:py-3"
+                        className="font-manrope relative mt-4 rounded-full border border-white bg-transparent px-5 py-2 text-sm text-white transition hover:border-transparent hover:bg-[#00B9EC] sm:px-8 sm:py-3"
                     >
                         GET A QUOTE{" "}
                         <img
                             src="/cargo/herosection/right_arrow.svg"
                             alt="arrow"
-                            className="ml-2 inline-block h-4 w-4"
+                            className="md:ml-2 inline-block h-4 w-4"
                         />
                     </button>
                 </div>

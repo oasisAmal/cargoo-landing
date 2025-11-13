@@ -2,13 +2,7 @@ import React from "react";
 
 const Footer: React.FC = () => {
     return (
-        <footer
-            className="relative overflow-hidden bg-[#2C2F33] py-10 pt-16 font-stan text-gray-300 md:px-20 sm:mt-[-2rem]"
-            style={{
-                clipPath:
-                    "polygon(100% 0px, 62% 0px, 60% 5%, 0px 5%, 0px 100%, 100% 100%)",
-            }}
-        >
+        <footer className="footer relative overflow-hidden bg-[#2C2F33] py-10 font-stan text-gray-300 sm:mt-[-2rem] md:px-20 md:pt-16">
             {/* --- Logo --- */}
             <div className="mb-10 flex w-full items-center justify-center md:items-center md:justify-start">
                 <img
@@ -71,9 +65,7 @@ const Footer: React.FC = () => {
                         Abu Dhabi, UAE
                     </p>
                     <p className="mt-3 text-sm sm:text-base">+971 2 673 3346</p>
-                    <p className="mt-1 text-sm sm:text-base">
-                        info@3CARGO.com
-                    </p>
+                    <p className="mt-1 text-sm sm:text-base">info@3CARGO.com</p>
                 </div>
             </div>
 
@@ -93,7 +85,7 @@ const Footer: React.FC = () => {
             <img
                 src="/cargo/section3/map_pin.svg"
                 alt="Background shape"
-                className="absolute bottom-[-250px] right-[-200px] w-[250px] opacity-30 sm:w-[350px] md:w-[500px] lg:w-[700px] md:opacity-100"
+                className="absolute bottom-[-250px] right-[-200px] w-[250px] opacity-30 sm:w-[350px] md:w-[500px] md:opacity-100 lg:w-[700px]"
             />
         </footer>
     );
