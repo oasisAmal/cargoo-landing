@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { Menu, X } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import i18n from "../../i18n";
 
 const HeroSection: React.FC = () => {
+    const { t } = useTranslation();
+
     const [isServicesOpen, setIsServicesOpen] = useState(false);
     const [isLanguagesOpen, setIsLanguagesOpen] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -21,6 +25,10 @@ const HeroSection: React.FC = () => {
             if (newState) setIsServicesOpen(false);
             return newState;
         });
+    };
+
+    const changeLanguage = (lng: string) => {
+        i18n.changeLanguage(lng);
     };
 
     return (
@@ -54,7 +62,7 @@ const HeroSection: React.FC = () => {
                             href="/cargo"
                             className="font-manrope transition hover:text-[#00B9EC]"
                         >
-                            Home
+                            {t("navbar.home")}
                         </a>
 
                         <div className="group relative">
@@ -62,7 +70,7 @@ const HeroSection: React.FC = () => {
                                 onClick={toggleServices}
                                 className="flex items-center gap-1 font-manrope hover:text-[#00B9EC]"
                             >
-                                Services
+                                {t("navbar.services")}
                                 <ChevronDown
                                     size={16}
                                     className={`transition-transform duration-300 ${
@@ -73,129 +81,26 @@ const HeroSection: React.FC = () => {
                             {isServicesOpen && (
                                 <div className="absolute top-full z-50 mt-5 w-[350px] bg-white/20 px-2 py-5 backdrop-blur-md">
                                     <h3 className="mb-4 pl-4 text-base text-white">
-                                        All Services
+                                        {t("navbar.all_services")}
                                     </h3>
-                                    <ul className="space-y-3 font-stan text-[13px] font-light text-gray-200">
-                                        <li className="group mx-4 flex cursor-pointer items-center justify-between px-4 py-3 transition-all duration-300 ease-in-out hover:bg-[#00B9EC] hover:text-white">
-                                            <span>Residential Moves</span>
-                                            <div className="relative h-4 w-4">
-                                                <img
-                                                    src="/cargo/herosection/right_arrow_color.svg"
-                                                    alt="colored arrow"
-                                                    className="absolute inset-0 block h-4 w-4 group-hover:hidden"
-                                                />
-                                                <img
-                                                    src="/cargo/herosection/right_arrow.svg"
-                                                    alt="arrow"
-                                                    className="absolute inset-0 hidden h-4 w-4 group-hover:block"
-                                                />
-                                            </div>
-                                        </li>
-
-                                        <li className="group mx-4 flex cursor-pointer items-center justify-between px-4 py-3 transition-all duration-300 ease-in-out hover:bg-[#00B9EC] hover:text-white">
-                                            <span>Commercial Relocations</span>
-                                            <div className="relative h-4 w-4">
-                                                <img
-                                                    src="/cargo/herosection/right_arrow_color.svg"
-                                                    alt="colored arrow"
-                                                    className="absolute inset-0 block h-4 w-4 group-hover:hidden"
-                                                />
+                                    <ul className="space-y-3 text-[13px] text-gray-200">
+                                        {Object.entries(
+                                            t("services_list", {
+                                                returnObjects: true,
+                                            }),
+                                        ).map(([key, value]) => (
+                                            <li
+                                                key={key}
+                                                className="group mx-4 flex cursor-pointer items-center justify-between px-4 py-3 transition-all hover:bg-[#00B9EC] hover:text-white"
+                                            >
+                                                <span>{value}</span>
                                                 <img
                                                     src="/cargo/herosection/right_arrow.svg"
+                                                    className="h-4 w-4"
                                                     alt="arrow"
-                                                    className="absolute inset-0 hidden h-4 w-4 group-hover:block"
                                                 />
-                                            </div>
-                                        </li>
-
-                                        <li className="group mx-4 flex cursor-pointer items-center justify-between px-4 py-3 transition-all duration-300 ease-in-out hover:bg-[#00B9EC] hover:text-white">
-                                            <span>
-                                                Long-Distance & International
-                                                Moves
-                                            </span>
-                                            <div className="relative h-4 w-4">
-                                                <img
-                                                    src="/cargo/herosection/right_arrow_color.svg"
-                                                    alt="colored arrow"
-                                                    className="absolute inset-0 block h-4 w-4 group-hover:hidden"
-                                                />
-                                                <img
-                                                    src="/cargo/herosection/right_arrow.svg"
-                                                    alt="arrow"
-                                                    className="absolute inset-0 hidden h-4 w-4 group-hover:block"
-                                                />
-                                            </div>
-                                        </li>
-
-                                        <li className="group mx-4 flex cursor-pointer items-center justify-between px-4 py-3 transition-all duration-300 ease-in-out hover:bg-[#00B9EC] hover:text-white">
-                                            <span>
-                                                Expedited Freight Services
-                                            </span>
-                                            <div className="relative h-4 w-4">
-                                                <img
-                                                    src="/cargo/herosection/right_arrow_color.svg"
-                                                    alt="colored arrow"
-                                                    className="absolute inset-0 block h-4 w-4 group-hover:hidden"
-                                                />
-                                                <img
-                                                    src="/cargo/herosection/right_arrow.svg"
-                                                    alt="arrow"
-                                                    className="absolute inset-0 hidden h-4 w-4 group-hover:block"
-                                                />
-                                            </div>
-                                        </li>
-
-                                        <li className="group mx-4 flex cursor-pointer items-center justify-between px-4 py-3 transition-all duration-300 ease-in-out hover:bg-[#00B9EC] hover:text-white">
-                                            <span>Expert Packing Services</span>
-                                            <div className="relative h-4 w-4">
-                                                <img
-                                                    src="/cargo/herosection/right_arrow_color.svg"
-                                                    alt="colored arrow"
-                                                    className="absolute inset-0 block h-4 w-4 group-hover:hidden"
-                                                />
-                                                <img
-                                                    src="/cargo/herosection/right_arrow.svg"
-                                                    alt="arrow"
-                                                    className="absolute inset-0 hidden h-4 w-4 group-hover:block"
-                                                />
-                                            </div>
-                                        </li>
-
-                                        <li className="group mx-4 flex cursor-pointer items-center justify-between px-4 py-3 transition-all duration-300 ease-in-out hover:bg-[#00B9EC] hover:text-white">
-                                            <span>
-                                                Return & Reverse Logistics
-                                            </span>
-                                            <div className="relative h-4 w-4">
-                                                <img
-                                                    src="/cargo/herosection/right_arrow_color.svg"
-                                                    alt="colored arrow"
-                                                    className="absolute inset-0 block h-4 w-4 group-hover:hidden"
-                                                />
-                                                <img
-                                                    src="/cargo/herosection/right_arrow.svg"
-                                                    alt="arrow"
-                                                    className="absolute inset-0 hidden h-4 w-4 group-hover:block"
-                                                />
-                                            </div>
-                                        </li>
-
-                                        <li className="group mx-4 flex cursor-pointer items-center justify-between px-4 py-3 transition-all duration-300 ease-in-out hover:bg-[#00B9EC] hover:text-white">
-                                            <span>
-                                                Heavy Haul & Oversized Loads
-                                            </span>
-                                            <div className="relative h-4 w-4">
-                                                <img
-                                                    src="/cargo/herosection/right_arrow_color.svg"
-                                                    alt="colored arrow"
-                                                    className="absolute inset-0 block h-4 w-4 group-hover:hidden"
-                                                />
-                                                <img
-                                                    src="/cargo/herosection/right_arrow.svg"
-                                                    alt="arrow"
-                                                    className="absolute inset-0 hidden h-4 w-4 group-hover:block"
-                                                />
-                                            </div>
-                                        </li>
+                                            </li>
+                                        ))}
                                     </ul>
                                 </div>
                             )}
@@ -205,7 +110,7 @@ const HeroSection: React.FC = () => {
                             href="/"
                             className="font-manrope transition hover:text-[#00B9EC]"
                         >
-                            Blogs
+                            {t("navbar.blogs")}
                         </a>
 
                         {/* Language dropdown (same as before) */}
@@ -214,7 +119,7 @@ const HeroSection: React.FC = () => {
                                 onClick={toggleLanguages}
                                 className="flex items-center gap-1 font-manrope hover:text-[#00B9EC]"
                             >
-                                Language
+                                {t("navbar.language")}
                                 <ChevronDown
                                     size={16}
                                     className={`transition-transform duration-300 ${
@@ -225,8 +130,13 @@ const HeroSection: React.FC = () => {
                             {isLanguagesOpen && (
                                 <div className="absolute top-full z-50 mr-24 mt-3 w-[200px] bg-white/20 px-5 py-4 backdrop-blur-sm">
                                     <ul className="space-y-1 font-stan text-gray-200">
-                                        <li className="group mx-4 flex cursor-pointer items-center justify-between px-4 py-3 transition-all duration-300 ease-in-out hover:bg-[#00B9EC] hover:text-white">
-                                            <span>English</span>
+                                        <li
+                                            onClick={() => changeLanguage("en")}
+                                            className="group mx-4 flex cursor-pointer items-center justify-between px-4 py-3 transition-all duration-300 ease-in-out hover:bg-[#00B9EC] hover:text-white"
+                                        >
+                                            <span>
+                                                {t("languages.english")}
+                                            </span>
                                             <div className="relative h-4 w-4">
                                                 <img
                                                     src="/cargo/herosection/right_arrow_color.svg"
@@ -241,8 +151,11 @@ const HeroSection: React.FC = () => {
                                             </div>
                                         </li>
 
-                                        <li className="group mx-4 flex cursor-pointer items-center justify-between px-4 py-3 transition-all duration-300 ease-in-out hover:bg-[#00B9EC] hover:text-white">
-                                            <span>العربية</span>
+                                        <li
+                                            onClick={() => changeLanguage("ar")}
+                                            className="group mx-4 flex cursor-pointer items-center justify-between px-4 py-3 transition-all duration-300 ease-in-out hover:bg-[#00B9EC] hover:text-white"
+                                        >
+                                            <span>{t("languages.arabic")}</span>
                                             <div className="relative h-4 w-4">
                                                 <img
                                                     src="/cargo/herosection/right_arrow_color.svg"
@@ -273,7 +186,7 @@ const HeroSection: React.FC = () => {
                             }}
                             className="rounded-full bg-[#00B9EC] px-5 py-2 font-manrope text-white transition hover:bg-white hover:text-black sm:px-8 sm:py-3"
                         >
-                            GET A QUOTE
+                            {t("navbar.get_quote")}
                         </button>
                     </nav>
 
@@ -297,13 +210,13 @@ const HeroSection: React.FC = () => {
                             href="/"
                             className="font-manrope hover:text-[#00B9EC]"
                         >
-                            Home
+                            {t("navbar.home")}
                         </a>
                         <button
                             onClick={toggleServices}
                             className="flex items-center justify-between font-manrope hover:text-[#00B9EC]"
                         >
-                            Services
+                            {t("navbar.services")}
                             <ChevronDown
                                 size={16}
                                 className={`transition-transform duration-300 ${
@@ -312,62 +225,30 @@ const HeroSection: React.FC = () => {
                             />
                         </button>
                         {isServicesOpen && (
-                            <div className="ml-4 space-y-2 font-stan text-gray-200">
-                                <a
-                                    href="/"
-                                    className="block hover:text-[#00B9EC]"
-                                >
-                                    Residential Moves
-                                </a>
-                                <a
-                                    href="/"
-                                    className="block hover:text-[#00B9EC]"
-                                >
-                                    Commercial Relocations
-                                </a>
-                                <a
-                                    href="/"
-                                    className="block hover:text-[#00B9EC]"
-                                >
-                                    Long-Distance & International Moves
-                                </a>
-                                <a
-                                    href="/"
-                                    className="block hover:text-[#00B9EC]"
-                                >
-                                    Expedited Freight Services
-                                </a>
-                                <a
-                                    href="/"
-                                    className="block hover:text-[#00B9EC]"
-                                >
-                                    Expert Packing Services
-                                </a>
-                                <a
-                                    href="/"
-                                    className="block hover:text-[#00B9EC]"
-                                >
-                                    Return & Reverse Logistics
-                                </a>
-                                <a
-                                    href="/"
-                                    className="block hover:text-[#00B9EC]"
-                                >
-                                    Heavy Haul & Oversized Loads
-                                </a>
+                            <div className="ml-4 space-y-2">
+                                {Object.entries(
+                                    t("services_list", { returnObjects: true }),
+                                ).map(([key, value]) => (
+                                    <div
+                                        key={key}
+                                        className="hover:text-[#00B9EC]"
+                                    >
+                                        {value}
+                                    </div>
+                                ))}
                             </div>
                         )}
                         <a
                             href="/"
                             className="font-manrope hover:text-[#00B9EC]"
                         >
-                            Blogs
+                            {t("navbar.blogs")}
                         </a>
                         <button
                             onClick={toggleLanguages}
                             className="flex items-center justify-between font-manrope hover:text-[#00B9EC]"
                         >
-                            Language
+                            {t("navbar.language")}
                             <ChevronDown
                                 size={16}
                                 className={`transition-transform duration-300 ${
@@ -380,14 +261,16 @@ const HeroSection: React.FC = () => {
                                 <a
                                     href="/"
                                     className="block hover:text-[#00B9EC]"
+                                    onClick={() => changeLanguage("en")}
                                 >
-                                    English
+                                    {t("languages.english")}
                                 </a>
                                 <a
                                     href="/"
                                     className="block hover:text-[#00B9EC]"
+                                    onClick={() => changeLanguage("ar")}
                                 >
-                                    العربية
+                                    {t("languages.arabic")}
                                 </a>
                             </div>
                         )}
@@ -404,7 +287,7 @@ const HeroSection: React.FC = () => {
                             }}
                             className="mt-2 rounded-full bg-[#00B9EC] px-5 py-2 font-manrope text-white transition hover:bg-white hover:text-black"
                         >
-                            GET A QUOTE
+                            {t("navbar.get_quote")}
                         </button>
                     </div>
                 )}
@@ -413,11 +296,17 @@ const HeroSection: React.FC = () => {
             {/* Center Hero Text */}
             <div className="absolute inset-0 z-20 mb-20 flex flex-col-reverse items-center justify-center gap-6 px-24 text-center font-stan text-white sm:flex-row sm:justify-between sm:px-14 sm:text-left">
                 <h1 className="font-stan text-3xl font-semibold uppercase sm:text-5xl md:text-6xl lg:text-7xl">
-                    <span className="block leading-[1.2]">YOUR GLOBAL</span>
-                    <span className="block leading-[1.2]">FREIGHT PARTNER</span>
-                    <span className="block leading-[1.2]">— RELIABLE,</span>
                     <span className="block leading-[1.2]">
-                        EFFICIENT, ON TIME
+                        {t("hero.line1")}
+                    </span>
+                    <span className="block leading-[1.2]">
+                        {t("hero.line2")}
+                    </span>
+                    <span className="block leading-[1.2]">
+                        {t("hero.line3")}
+                    </span>
+                    <span className="block leading-[1.2]">
+                        {t("hero.line4")}
                     </span>
                 </h1>
 
@@ -445,11 +334,8 @@ const HeroSection: React.FC = () => {
             {/* Bottom Row */}
             <div className="absolute bottom-6 left-0 z-30 mb-16 flex w-full flex-col items-center justify-center gap-4 px-8 text-center font-manrope sm:flex-row sm:justify-between sm:px-14 sm:text-left">
                 <div className="w-max-xl flex flex-col items-start space-x-32 font-stan text-sm font-light text-white sm:flex-row sm:text-base md:text-lg">
-                    <span>
-                        We provide comprehensive domestic and international{" "}
-                        <br className="hidden sm:block" />
-                        logistics services, delivering customized solutions by
-                        <br className="hidden sm:block" /> land, sea, and air.
+                    <span className="max-w-lg">
+                        {t("description.text")}
                     </span>
                     <button
                         onClick={() => {
@@ -459,18 +345,18 @@ const HeroSection: React.FC = () => {
                                 target.scrollIntoView({ behavior: "smooth" });
                             }
                         }}
-                        className="font-manrope relative mt-4 rounded-full border border-white bg-transparent px-5 py-2 text-sm text-white transition hover:border-transparent hover:bg-[#00B9EC] sm:px-8 sm:py-3"
+                        className="relative mt-4 rounded-full border border-white bg-transparent px-5 py-2 font-manrope text-sm text-white transition hover:border-transparent hover:bg-[#00B9EC] sm:px-8 sm:py-3"
                     >
-                        GET A QUOTE{" "}
+                        {t("buttons.get_quote")}
                         <img
                             src="/cargo/herosection/right_arrow.svg"
                             alt="arrow"
-                            className="md:ml-2 inline-block h-4 w-4"
+                            className="inline-block h-4 w-4 md:ml-2"
                         />
                     </button>
                 </div>
 
-                <div className="flex justify-center sm:justify-end">
+                <div className="flex justify-center pr-3 sm:justify-end">
                     <a
                         href="https://wa.me/97125630364"
                         target="_blank"

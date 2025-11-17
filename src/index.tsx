@@ -5,6 +5,7 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Cargo from "./routes/cargo"; // your Cargo page
+import "./i18n";
 
 // React Query client
 export const queryClient = new QueryClient({

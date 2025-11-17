@@ -1,0 +1,91 @@
+{
+    "navbar": {
+        "home": "Home",
+        "services": "Services",
+        "blogs": "Blogs",
+        "language": "Language",
+        "get_quote": "GET A QUOTE",
+        "all_services": "All Services"
+    },
+
+    "services_list": {
+        "residential_moves": "Residential Moves",
+        "commercial_relocations": "Commercial Relocations",
+        "long_distance_moves": "Long-Distance & International Moves",
+        "expedited_freight": "Expedited Freight Services",
+        "expert_packing": "Expert Packing Services",
+        "reverse_logistics": "Return & Reverse Logistics",
+        "heavy_haul": "Heavy Haul & Oversized Loads"
+    },
+
+    "languages": {
+        "english": "English",
+        "arabic": "العربية"
+    },
+
+    "hero": {
+        "line1": "YOUR GLOBAL",
+        "line2": "FREIGHT PARTNER",
+        "line3": "— RELIABLE,",
+        "line4": "EFFICIENT, ON TIME"
+    },
+
+    "description": {
+        "text": "We provide comprehensive domestic and international logistics services, delivering customized solutions by land, sea, and air."
+    },
+
+    "buttons": {
+        "get_quote": "GET A QUOTE"
+    },
+
+    "apps": {
+        "app_store": "App Store",
+        "play_store": "Play Store"
+    },
+    "section1": {
+        "header_arrow_label": "ABOUT US",
+
+        "title_line1": "Connecting the World,",
+        "title_line2": "One Shipment at a Time",
+
+        "description": "With years of proven expertise in logistics, we ensure the safe and efficient delivery of cargo worldwide. From small parcels to large shipments, our customized solutions guarantee on-time delivery and full transparency every step of the way.",
+
+        "sub_section_title_line1": "Driven by Logistics.",
+        "sub_section_title_line2": "Powered by People.",
+
+        "about_us_button": "About Us",
+
+        "stats": {
+            "experience_years_number": "01+",
+            "experience_years_label": "Years of Experience",
+            "experience_years_description": "We’ve built our reputation on reliability, transparency, and innovation.",
+
+            "shipments_number": "293k+",
+            "shipments_label": "Shipments Delivered",
+            "shipments_description": "Our experience spans over a million successful freight movements — by air, sea, and land."
+        }
+    },
+    "section2": {
+        "header": "OUR SERVICES",
+        "titleLine1": "COMPREHENSIVE",
+        "titleLine2": "LOGISTICS SERVICES",
+        "cards": {
+            "internationalShipping": {
+                "title": "International\nShipping",
+                "desc": "Seamless freight services across continents. We handle all the complexities so you don't have to."
+            },
+            "domesticDelivery": {
+                "title": "Domestic\nDelivery",
+                "desc": "Fast and dependable freight coverage across the country — from last-mile delivery to bulk transportation."
+            },
+            "seaFreight": {
+                "title": "Sea Freight",
+                "desc": "Cost-effective solutions for large and heavy cargo. Full container load (FCL) and less than container load (LCL) options available."
+            },
+            "customsClearance": {
+                "title": "Customs\nClearance",
+                "desc": "Avoid delays and penalties — our experts manage all documentation and regulations for swift border crossings."
+            }
+        }
+    }
+}

@@ -1,4 +1,31 @@
+import { useTranslation } from "react-i18next";
+
 const Section2: React.FC = () => {
+    const { t } = useTranslation();
+
+    const cards = [
+        {
+            icon: "/cargo/section2/section2_icon1.svg",
+            title: t("section2.cards.internationalShipping.title"),
+            desc: t("section2.cards.internationalShipping.desc"),
+        },
+        {
+            icon: "/cargo/section2/section2_icon2.svg",
+            title: t("section2.cards.domesticDelivery.title"),
+            desc: t("section2.cards.domesticDelivery.desc"),
+        },
+        {
+            icon: "/cargo/section2/section2_icon3.svg",
+            title: t("section2.cards.seaFreight.title"),
+            desc: t("section2.cards.seaFreight.desc"),
+        },
+        {
+            icon: "/cargo/section2/section2_icon4.svg",
+            title: t("section2.cards.customsClearance.title"),
+            desc: t("section2.cards.customsClearance.desc"),
+        },
+    ];
+
     return (
         <section className="font-stan clip-top-shape mt-28 w-full overflow-hidden bg-[#F2F2F2] pb-20 pt-28">
             {/* Section Header */}
@@ -9,59 +36,20 @@ const Section2: React.FC = () => {
                         alt="colored arrow"
                         className="h-4 w-4"
                     />
-                    OUR SERVICES
+                    {t("section2.header")}
                 </p>
 
                 <p className="mb-8 flex w-full flex-col text-left text-3xl font-bold leading-[1.1] sm:text-4xl md:text-5xl">
-                    COMPREHENSIVE
+                    {t("section2.titleLine1")}
                     <br />
-                    LOGISTICS SERVICES
+                    {t("section2.titleLine2")}
                 </p>
             </div>
 
             {/* Cards Section */}
             <section className="px-6 py-10 md:px-12 md:py-16">
                 <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                    {[
-                        {
-                            icon: "/cargo/section2/section2_icon1.svg",
-                            title: (
-                                <>
-                                    International
-                                    <br />
-                                    Shipping
-                                </>
-                            ),
-                            desc: "Seamless freight services across continents. We handle all the complexities so you don't have to.",
-                        },
-                        {
-                            icon: "/cargo/section2/section2_icon2.svg",
-                            title: (
-                                <>
-                                    Domestic
-                                    <br />
-                                    Delivery
-                                </>
-                            ),
-                            desc: "Fast and dependable freight coverage across the country — from last-mile delivery to bulk transportation.",
-                        },
-                        {
-                            icon: "/cargo/section2/section2_icon3.svg",
-                            title: "Sea Freight",
-                            desc: "Cost-effective solutions for large and heavy cargo. Full container load (FCL) and less than container load (LCL) options available.",
-                        },
-                        {
-                            icon: "/cargo/section2/section2_icon4.svg",
-                            title: (
-                                <>
-                                    Customs
-                                    <br />
-                                    Clearance
-                                </>
-                            ),
-                            desc: "Avoid delays and penalties — our experts manage all documentation and regulations for swift border crossings.",
-                        },
-                    ].map((card, i) => (
+                    {cards.map((card, i) => (
                         <div
                             key={i}
                             className="relative bg-white p-8 sm:p-10 lg:p-12"
@@ -72,7 +60,7 @@ const Section2: React.FC = () => {
                         >
                             <img
                                 src={card.icon}
-                                alt="Service Icon"
+                                alt={card.title}
                                 className="h-12 w-12 sm:h-14 sm:w-14"
                             />
                             <div className="mt-4 text-left">
