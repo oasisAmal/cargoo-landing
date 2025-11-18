@@ -1,7 +1,8 @@
 import { useTranslation } from "react-i18next";
 
 const Section2: React.FC = () => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
+    const isArabic = i18n.language === "ar";
 
     const cards = [
         {
@@ -27,10 +28,19 @@ const Section2: React.FC = () => {
     ];
 
     return (
-        <section className="font-stan clip-top-shape mt-28 w-full overflow-hidden bg-[#F2F2F2] pb-20 pt-28">
+        <section
+            className={`clip-top-shape mt-28 w-full overflow-hidden bg-[#F2F2F2] pb-20 pt-28 font-stan`}
+            dir={isArabic ? "rtl" : "ltr"}
+        >
             {/* Section Header */}
-            <div className="px-6 md:px-12">
-                <p className="mb-6 flex w-full items-center justify-start gap-2 text-xl font-bold text-[#64748B]">
+            <div className="w-full px-6 md:px-12">
+                <p
+                    className={`mb-6 flex w-full items-center gap-2 text-xl font-bold text-[#64748B] ${
+                        isArabic
+                            ? "flex-row-reverse justify-end text-right"
+                            : "justify-start"
+                    }`}
+                >
                     <img
                         src="/cargo/herosection/right_arrow_color.svg"
                         alt="colored arrow"
@@ -39,7 +49,11 @@ const Section2: React.FC = () => {
                     {t("section2.header")}
                 </p>
 
-                <p className="mb-8 flex w-full flex-col text-left text-3xl font-bold leading-[1.1] sm:text-4xl md:text-5xl">
+                <p
+                    className={`mb-8 flex w-full flex-col text-3xl font-bold leading-[1.1] sm:text-4xl md:text-5xl ${
+                        isArabic ? "text-right" : "text-left"
+                    }`}
+                >
                     {t("section2.titleLine1")}
                     <br />
                     {t("section2.titleLine2")}
@@ -61,10 +75,15 @@ const Section2: React.FC = () => {
                             <img
                                 src={card.icon}
                                 alt={card.title}
-                                className="h-12 w-12 sm:h-14 sm:w-14"
+                                className={`h-12 w-12 sm:h-14 sm:w-14 ${
+                                    isArabic ? "ml-auto" : ""
+                                }`}
                             />
-                            <div className="mt-4 text-left">
-                                <h3 className="text-xl font-bold text-gray-900 sm:text-2xl">
+
+                            <div
+                                className={`mt-4 ${isArabic ? "text-right" : "text-left"}`}
+                            >
+                                <h3 className="whitespace-pre-line text-xl font-bold text-gray-900 sm:text-2xl">
                                     {card.title}
                                 </h3>
                                 <p className="mt-3 text-sm leading-relaxed text-gray-600">

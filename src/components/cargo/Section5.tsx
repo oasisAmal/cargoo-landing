@@ -1,29 +1,41 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
-const Section5: React.FC = () => {
+const Section5: React.FC<{}> = ({}) => {
+    const { t, i18n } = useTranslation();
+    const isArabic = i18n.language === "ar";
+
     const testimonials = [
         {
             icon: "/cargo/section5/section5_pic1.png",
-            title: "Client Name",
-            desc: "Praesent non enim sed velit malesuada consectetur id a justo. Fusce quis eros sit amet enim laoreet dignissim. Sed auctor massa non arcu posuere, id sodales metus interdum.",
+            title: isArabic ? "اسم العميل" : "Client Name",
+            desc: isArabic
+                ? "لا يُمكن الاستغناء عن الدقة والموثوقية عند الشحن — فهي أساسية. هذا سبب اختيار الشركات حول العالم لنا لنقل ما يهمهم:"
+                : "Praesent non enim sed velit malesuada consectetur id a justo. Fusce quis eros sit amet enim laoreet dignissim. Sed auctor massa non arcu posuere, id sodales metus interdum.",
             stars: 5,
         },
         {
             icon: "/cargo/section5/section5_pic2.png",
-            title: "Client Name",
-            desc: "Praesent non enim sed velit malesuada consectetur id a justo. Fusce quis eros sit amet enim laoreet dignissim. Sed auctor massa non arcu posuere, id sodales metus interdum.",
+            title: isArabic ? "اسم العميل" : "Client Name",
+            desc: isArabic
+                ? "نحن ملتزمون بالتواصل السريع والشفاف لتقديم أفضل تجربة شحن ممكنة."
+                : "Praesent non enim sed velit malesuada consectetur id a justo. Fusce quis eros sit amet enim laoreet dignissim. Sed auctor massa non arcu posuere, id sodales metus interdum.",
             stars: 4,
         },
         {
             icon: "/cargo/section5/section5_pic3.png",
-            title: "Client Name",
-            desc: "Praesent non enim sed velit malesuada consectetur id a justo. Fusce quis eros sit amet enim laoreet dignissim. Sed auctor massa non arcu posuere, id sodales metus interdum.",
+            title: isArabic ? "اسم العميل" : "Client Name",
+            desc: isArabic
+                ? "حلول مرنة وموثوقة لنقل شحناتك بأمان وفي الوقت المحدد."
+                : "Praesent non enim sed velit malesuada consectetur id a justo. Fusce quis eros sit amet enim laoreet dignissim. Sed auctor massa non arcu posuere, id sodales metus interdum.",
             stars: 5,
         },
         {
             icon: "/cargo/section5/section5_pic1.png",
-            title: "Client Name",
-            desc: "Praesent non enim sed velit malesuada consectetur id a justo. Fusce quis eros sit amet enim laoreet dignissim. Sed auctor massa non arcu posuere, id sodales metus interdum.",
+            title: isArabic ? "اسم العميل" : "Client Name",
+            desc: isArabic
+                ? "خدمة عملاء متميزة واهتمام بكل تفاصيل شحنك."
+                : "Praesent non enim sed velit malesuada consectetur id a justo. Fusce quis eros sit amet enim laoreet dignissim. Sed auctor massa non arcu posuere, id sodales metus interdum.",
             stars: 4,
         },
     ];
@@ -50,9 +62,11 @@ const Section5: React.FC = () => {
 
     return (
         <section
-            className="font-stan mt-28 w-full overflow-hidden bg-[#F2F2F2] pb-20 pt-28"
+            dir={isArabic ? "rtl" : "ltr"} // <--- enable RTL for Arabic
+            className="mt-28 w-full overflow-hidden bg-[#F2F2F2] pb-20 pt-10 font-stan"
             style={{
-                clipPath: "polygon(0 0, 50% 0, 52% 4%,100% 4%,100% 100%,0 100%)",
+                clipPath:
+                    "polygon(0 0, 50% 0, 52% 4%,100% 4%,100% 100%,0 100%)",
             }}
         >
             <div className="mb-10 flex items-center justify-between px-6 md:px-12">
@@ -63,15 +77,17 @@ const Section5: React.FC = () => {
                             alt="colored arrow"
                             className="h-4 w-4"
                         />
-                        TESTIMONIALS
+                        {isArabic ? "توصيات العملاء" : "TESTIMONIALS"}
                     </p>
-                    <p className="flex flex-col text-left text-3xl font-bold leading-[1.1] sm:text-4xl md:text-5xl">
-                        WHAT OUR
-                        <br />
-                        CLIENTS SAY
+                    <p className="flex flex-col whitespace-pre-line text-left text-3xl font-bold leading-[1.1] sm:text-4xl md:text-5xl">
+                        {isArabic
+                            ? "ماذا يقول عملاؤنا"
+                            : "WHAT OUR\nCLIENTS SAY"}
                     </p>
                 </div>
-                <div className="flex gap-2 pt-28">
+                <div
+                    className={`flex gap-2 pt-28 ${isArabic ? "" : ""}`}
+                >
                     <button onClick={handlePrev}>
                         <svg
                             width="32"
@@ -79,6 +95,7 @@ const Section5: React.FC = () => {
                             viewBox="0 0 48 48"
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
+                            className={isArabic ? "scale-x-[-1]" : ""}
                         >
                             <path
                                 d="M35.8301 6.00008L17.8301 24.0001L35.8301 42.0001L33.0001 44.8301L12.1701 24.0001L33.0001 3.17007L35.8301 6.00008Z"
@@ -93,6 +110,7 @@ const Section5: React.FC = () => {
                             viewBox="0 0 48 48"
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
+                            className={isArabic ? "scale-x-[-1]" : ""}
                         >
                             <path
                                 d="M12.1699 41.9999L30.1699 23.9999L12.1699 5.99992L14.9999 3.16992L35.8299 23.9999L14.9999 44.8299L12.1699 41.9999Z"

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 interface FAQItem {
     question: string;
@@ -7,28 +8,30 @@ interface FAQItem {
 
 const faqs: FAQItem[] = [
     {
-        question: "What types of cargo do you handle?",
-        answer: "We handle a wide range of cargo, including general freight, oversized equipment, perishable goods, hazardous materials, and time-sensitive deliveries. Contact us for custom logistics solutions tailored to your shipment.",
+        question: "ما أنواع الشحنات التي تتعاملون معها؟",
+        answer: "نتعامل مع مجموعة واسعة من الشحنات، بما في ذلك الشحن العام، المعدات الكبيرة، البضائع القابلة للتلف، المواد الخطرة، والشحنات الحساسة للوقت. اتصل بنا للحصول على حلول لوجستية مخصصة لشحنتك.",
     },
     {
-        question: "Do you provide international shipping services?",
-        answer: "We handle a wide range of cargo, including general freight, oversized equipment, perishable goods, hazardous materials, and time-sensitive deliveries. Contact us for custom logistics solutions tailored to your shipment.",
+        question: "هل تقدمون خدمات الشحن الدولي؟",
+        answer: "نتعامل مع مجموعة واسعة من الشحنات، بما في ذلك الشحن العام، المعدات الكبيرة، البضائع القابلة للتلف، المواد الخطرة، والشحنات الحساسة للوقت. اتصل بنا للحصول على حلول لوجستية مخصصة لشحنتك.",
     },
     {
-        question: "How can I get a quote for my shipment?",
-        answer: "We handle a wide range of cargo, including general freight, oversized equipment, perishable goods, hazardous materials, and time-sensitive deliveries. Contact us for custom logistics solutions tailored to your shipment.",
+        question: "كيف يمكنني الحصول على عرض سعر لشحنتي؟",
+        answer: "نتعامل مع مجموعة واسعة من الشحنات، بما في ذلك الشحن العام، المعدات الكبيرة، البضائع القابلة للتلف، المواد الخطرة، والشحنات الحساسة للوقت. اتصل بنا للحصول على حلول لوجستية مخصصة لشحنتك.",
     },
     {
-        question: "Can I track my shipment in real time?",
-        answer: "We handle a wide range of cargo, including general freight, oversized equipment, perishable goods, hazardous materials, and time-sensitive deliveries. Contact us for custom logistics solutions tailored to your shipment.",
+        question: "هل يمكنني تتبع شحنتي في الوقت الفعلي؟",
+        answer: "نتعامل مع مجموعة واسعة من الشحنات، بما في ذلك الشحن العام، المعدات الكبيرة، البضائع القابلة للتلف، المواد الخطرة، والشحنات الحساسة للوقت. اتصل بنا للحصول على حلول لوجستية مخصصة لشحنتك.",
     },
     {
-        question: "Do you offer customs clearance services?",
-        answer: "We handle a wide range of cargo, including general freight, oversized equipment, perishable goods, hazardous materials, and time-sensitive deliveries. Contact us for custom logistics solutions tailored to your shipment.",
+        question: "هل تقدمون خدمات التخليص الجمركي؟",
+        answer: "نتعامل مع مجموعة واسعة من الشحنات، بما في ذلك الشحن العام، المعدات الكبيرة، البضائع القابلة للتلف، المواد الخطرة، والشحنات الحساسة للوقت. اتصل بنا للحصول على حلول لوجستية مخصصة لشحنتك.",
     },
 ];
 
-const Section9: React.FC = () => {
+const Section9: React.FC<{}> = ({}) => {
+    const { t, i18n } = useTranslation();
+    const isArabic = i18n.language === "ar";
     const [openIndex, setOpenIndex] = useState<number | null>(null);
 
     const toggleFAQ = (index: number) => {
@@ -36,20 +39,29 @@ const Section9: React.FC = () => {
     };
 
     return (
-        <section className="flex flex-col-reverse items-center justify-center gap-20 bg-gray-100 px-6 py-16 font-stan lg:flex-row lg:items-center lg:gap-10 pb-28">
+        <section
+            dir={isArabic ? "rtl" : "ltr"} // RTL for Arabic
+            className="flex flex-col-reverse items-center justify-center gap-20 bg-gray-100 px-6 py-16 pb-28 font-stan lg:flex-row lg:items-center lg:gap-10"
+        >
             {/* LEFT SIDE: FAQ */}
-            <div className="w-full max-w-2xl px-4 lg:w-1/2 mx-20">
-                <p className="mb-6 flex w-full items-center justify-start gap-2 text-xl font-bold text-[#64748B]">
+            <div className="mx-20 w-full max-w-2xl px-4 lg:w-1/2">
+                <p
+                    className={`mb-6 flex w-full items-center gap-2 text-xl font-bold text-[#64748B] ${isArabic ? "flex-row-reverse justify-end" : "justify-start"}`}
+                >
                     <img
                         src="/cargo/herosection/right_arrow_color.svg"
                         alt="colored arrow"
                         className="h-4 w-4"
                     />
-                    FAQ
+                    {isArabic ? "الأسئلة الشائعة" : "FAQ"}
                 </p>
-                <h2 className="mb-10 text-3xl font-bold text-gray-800 sm:text-4xl">
-                    GOT QUESTIONS ?<br />
-                    WE'VE GOT ANSWERS
+
+                <h2
+                    className={`mb-10 text-3xl font-bold sm:text-4xl ${isArabic ? "text-right" : "text-left"}`}
+                >
+                    {isArabic
+                        ? "هل لديك أسئلة؟\nلدينا الإجابات"
+                        : "GOT QUESTIONS ?\nWE'VE GOT ANSWERS"}
                 </h2>
 
                 <div className="space-y-1">
@@ -57,7 +69,7 @@ const Section9: React.FC = () => {
                         <div key={index} className="bg-white">
                             <button
                                 onClick={() => toggleFAQ(index)}
-                                className="flex w-full items-center justify-between px-5 py-4 text-left text-gray-800"
+                                className={`flex w-full items-center justify-between px-5 py-4 text-left text-gray-800 ${isArabic ? "flex-row-reverse" : ""}`}
                             >
                                 <span
                                     className={`font-regular text-base sm:text-lg ${
@@ -80,7 +92,9 @@ const Section9: React.FC = () => {
                             </button>
 
                             {openIndex === index && (
-                                <div className="px-5 pb-4 text-sm text-[#334155] sm:text-base">
+                                <div
+                                    className={`px-5 pb-4 text-sm text-[#334155] sm:text-base ${isArabic ? "text-right" : "text-left"}`}
+                                >
                                     {faq.answer}
                                 </div>
                             )}
@@ -90,11 +104,11 @@ const Section9: React.FC = () => {
             </div>
 
             {/* RIGHT SIDE: IMAGE */}
-            <div className="flex w-full justify-center lg:w-1/2 mx-20">
+            <div className="mx-20 flex w-full justify-center lg:w-1/2">
                 <img
                     src="/cargo/section9/section9_background.png"
                     alt="FAQ illustration"
-                    className="sm:h-[600px] w-full object-cover"
+                    className="w-full object-cover sm:h-[600px]"
                     style={{
                         clipPath:
                             "polygon(50px 0, 100% 0, 100% 100%, 0 100%, 0 50px)",

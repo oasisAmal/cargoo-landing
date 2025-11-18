@@ -6,6 +6,7 @@ import i18n from "../../i18n";
 
 const HeroSection: React.FC = () => {
     const { t } = useTranslation();
+    const isArabic = i18n.language === "ar";
 
     const [isServicesOpen, setIsServicesOpen] = useState(false);
     const [isLanguagesOpen, setIsLanguagesOpen] = useState(false);
@@ -59,7 +60,7 @@ const HeroSection: React.FC = () => {
                     {/* Desktop Navigation */}
                     <nav className="hidden flex-wrap items-center justify-center gap-4 rounded-full bg-black/20 px-8 py-2 text-xs text-white sm:text-sm md:flex md:gap-8 md:px-8">
                         <a
-                            href="/cargo"
+                            href="/"
                             className="font-manrope transition hover:text-[#00B9EC]"
                         >
                             {t("navbar.home")}
@@ -83,7 +84,7 @@ const HeroSection: React.FC = () => {
                                     <h3 className="mb-4 pl-4 text-base text-white">
                                         {t("navbar.all_services")}
                                     </h3>
-                                    <ul className="space-y-3 text-[13px] text-gray-200">
+                                    <ul className="relative space-y-3 text-[13px] text-gray-200">
                                         {Object.entries(
                                             t("services_list", {
                                                 returnObjects: true,
@@ -94,10 +95,19 @@ const HeroSection: React.FC = () => {
                                                 className="group mx-4 flex cursor-pointer items-center justify-between px-4 py-3 transition-all hover:bg-[#00B9EC] hover:text-white"
                                             >
                                                 <span>{value}</span>
+
+                                                {/* default arrow */}
                                                 <img
                                                     src="/cargo/herosection/right_arrow.svg"
-                                                    className="h-4 w-4"
+                                                    className="block h-4 w-4 hover:hidden"
                                                     alt="arrow"
+                                                />
+
+                                                {/* arrow on hover */}
+                                                <img
+                                                    src="/cargo/herosection/right_arrow_white.svg"
+                                                    className="hidden h-4 w-4 hover:block"
+                                                    alt="arrow-white"
                                                 />
                                             </li>
                                         ))}
@@ -295,7 +305,10 @@ const HeroSection: React.FC = () => {
 
             {/* Center Hero Text */}
             <div className="absolute inset-0 z-20 mb-20 flex flex-col-reverse items-center justify-center gap-6 px-24 text-center font-stan text-white sm:flex-row sm:justify-between sm:px-14 sm:text-left">
-                <h1 className="font-stan text-3xl font-semibold uppercase sm:text-5xl md:text-6xl lg:text-7xl">
+                <h1
+                    className={`font-stan text-3xl font-semibold uppercase sm:text-5xl md:text-6xl lg:text-7xl 
+        ${isArabic ? "text-right" : "text-left"}`}
+                >
                     <span className="block leading-[1.2]">
                         {t("hero.line1")}
                     </span>
@@ -334,9 +347,10 @@ const HeroSection: React.FC = () => {
             {/* Bottom Row */}
             <div className="absolute bottom-6 left-0 z-30 mb-16 flex w-full flex-col items-center justify-center gap-4 px-8 text-center font-manrope sm:flex-row sm:justify-between sm:px-14 sm:text-left">
                 <div className="w-max-xl flex flex-col items-start space-x-32 font-stan text-sm font-light text-white sm:flex-row sm:text-base md:text-lg">
-                    <span className="max-w-lg">
-                        {t("description.text")}
-                    </span>
+                    <span className="max-w-lg">{t("description.text")}</span>
+                    <span
+                        className={`px-4 ${isArabic ? "hidden sm:block" : "hidden"}`}
+                    ></span>
                     <button
                         onClick={() => {
                             const target =
@@ -351,7 +365,7 @@ const HeroSection: React.FC = () => {
                         <img
                             src="/cargo/herosection/right_arrow.svg"
                             alt="arrow"
-                            className="inline-block h-4 w-4 md:ml-2"
+                            className={`inline-block h-4 w-4 md:ml-2 ${isArabic ? "pl-0" : "pl-2"}`}
                         />
                     </button>
                 </div>

@@ -9,9 +9,9 @@
     },
 
     "services_list": {
-        "residential_moves": "Residential Moves",
-        "commercial_relocations": "Commercial Relocations",
-        "long_distance_moves": "Long-Distance & International Moves",
+        "contract": "Contract",
+        "general_transport": "General Transport",
+        "long_distance": "Long Distance & International Moves",
         "expedited_freight": "Expedited Freight Services",
         "expert_packing": "Expert Packing Services",
         "reverse_logistics": "Return & Reverse Logistics",
@@ -48,7 +48,9 @@
         "title_line1": "Connecting the World,",
         "title_line2": "One Shipment at a Time",
 
-        "description": "With years of proven expertise in logistics, we ensure the safe and efficient delivery of cargo worldwide. From small parcels to large shipments, our customized solutions guarantee on-time delivery and full transparency every step of the way.",
+        "description1": "With years of proven expertise in logistics, we ensure the safe and efficient delivery of",
+        "description2": "cargo worldwide. From small parcels to large shipments, our customized solutions",
+        "description3": "guarantee on-time delivery and full transparency every step of the way.",
 
         "sub_section_title_line1": "Driven by Logistics.",
         "sub_section_title_line2": "Powered by People.",
@@ -58,11 +60,18 @@
         "stats": {
             "experience_years_number": "01+",
             "experience_years_label": "Years of Experience",
-            "experience_years_description": "We’ve built our reputation on reliability, transparency, and innovation.",
+            "experience_years_description1": "We’ve built our",
+            "experience_years_description2": "reputation on reliability,",
+            "experience_years_description3": "transparency,",
+            "experience_years_description4": "and innovation.",
 
             "shipments_number": "293k+",
             "shipments_label": "Shipments Delivered",
-            "shipments_description": "Our experience spans over a million successful freight movements — by air, sea, and land."
+            "shipments_description1": "Our experience spans",
+            "shipments_description2": "over a million",
+            "shipments_description3": "successful freight",
+            "shipments_description4": "movements — by air,",
+            "shipments_description5": "sea, and land."
         }
     },
     "section2": {
@@ -79,7 +88,7 @@
                 "desc": "Fast and dependable freight coverage across the country — from last-mile delivery to bulk transportation."
             },
             "seaFreight": {
-                "title": "Sea Freight",
+                "title": "Sea\nFreight",
                 "desc": "Cost-effective solutions for large and heavy cargo. Full container load (FCL) and less than container load (LCL) options available."
             },
             "customsClearance": {
