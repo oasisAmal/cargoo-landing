@@ -96,5 +96,24 @@
                 "desc": "Avoid delays and penalties — our experts manage all documentation and regulations for swift border crossings."
             }
         }
+    },
+    "insightsFromTheFieldTitle": "INSIGHTS FROM<br />THE FIELD",
+    "latestNews": "LATEST NEWS",
+    "readMore": "Read More",
+    "loadingBlogs": "Loading Blogs...",
+    "noRecentArticles": "No Recent Articles Found.",
+    "faq": {
+        "sectionTitle": "FAQ",
+        "mainHeading": "GOT QUESTIONS ?<br />WE'VE GOT ANSWERS",
+        "q1": "What types of cargo do you handle?",
+        "a1": "We handle a wide range of cargo, including general freight, heavy equipment, perishables, hazardous materials, and time-sensitive shipments. Contact us for custom logistics solutions for your cargo.",
+        "q2": "Do you provide international shipping services?",
+        "a2": "Yes, we provide comprehensive international shipping services via air, sea, and land to over 500 global destinations.",
+        "q3": "How can I get a quote for my shipment?",
+        "a3": "You can get a quote by clicking on the 'GET A QUOTE' button on our website or by contacting our customer service team directly with your shipment details.",
+        "q4": "Can I track my shipment in real time?",
+        "a4": "Yes, we offer real-time tracking for all shipments. You can track your shipment using the tracking number provided at the time of booking.",
+        "q5": "Do you offer customs clearance services?",
+        "a5": "Yes, we provide comprehensive customs clearance services to ensure your shipments comply with all regulations and reach their destination without delays."
     }
 }

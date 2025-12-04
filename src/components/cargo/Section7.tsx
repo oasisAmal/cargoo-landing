@@ -20,11 +20,14 @@ const Section7: React.FC<{}> = ({}) => {
                     {isArabic ? "بصماتنا" : "OUR FOOTPRINTS"}
                 </p>
 
-                <p className="mb-6 pb-12 text-3xl font-bold text-white sm:text-4xl">
-                    {isArabic
-                        ? "بصماتنا العالمية <br /> بالأرقام"
-                        : "Our Global Foot <br /> Prints in Numbers"}
-                </p>
+                <p
+                    className="mb-6 pb-12 text-3xl font-bold text-white sm:text-4xl"
+                    dangerouslySetInnerHTML={{
+                        __html: isArabic
+                            ? "بصماتنا العالمية <br /> بالأرقام"
+                            : "Our Global Foot <br /> Prints in Numbers",
+                    }}
+                />
 
                 <ul className="flex flex-col gap-8 font-stan text-sm text-gray-200 sm:text-base">
                     <li className="flex items-center gap-3">

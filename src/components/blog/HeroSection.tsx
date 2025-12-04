@@ -34,15 +34,11 @@ const HeroSection: React.FC = () => {
     };
 
     return (
-        <section className="clip-bottom-shape scroll-y-hidden relative h-[calc(100vh+40px)] w-full overflow-hidden font-stan">
-            {/* Background video */}
-            <video
+        <section className="clip-bottom-shape scroll-y-hidden relative h-[calc(50vh+40px)] w-full overflow-hidden font-stan">
+            <img
                 className="absolute left-0 top-0 h-full w-full object-cover"
-                src="/cargo/herosection/background.mp4"
-                autoPlay
-                loop
-                muted
-                playsInline
+                src="/blog/banner.jpg"
+                alt="Hero Background"
             />
 
             {/* Dark overlay */}
@@ -305,85 +301,11 @@ const HeroSection: React.FC = () => {
             </div>
 
             {/* Center Hero Text */}
-            <div className="absolute inset-0 z-20 mb-20 flex flex-col-reverse items-center justify-center gap-6 px-24 text-center font-stan text-white sm:flex-row sm:justify-between sm:px-14 sm:text-left">
-                <h1
-                    className={`font-stan text-3xl font-semibold uppercase sm:text-5xl md:text-6xl lg:text-7xl 
-        ${isArabic ? "text-right" : "text-left"}`}
-                >
-                    <span className="block leading-[1.2]">
-                        {t("hero.line1")}
-                    </span>
-                    <span className="block leading-[1.2]">
-                        {t("hero.line2")}
-                    </span>
-                    <span className="block leading-[1.2]">
-                        {t("hero.line3")}
-                    </span>
-                    <span className="block leading-[1.2]">
-                        {t("hero.line4")}
-                    </span>
-                </h1>
-
-                <div className="flex flex-row items-center space-y-0 sm:flex-col sm:items-end">
-                    {/* App Store */}
-                    <div className="border-1-white m-4 border bg-black/50 bg-transparent transition hover:border-[#00B9EC]">
-                        <img
-                            src="/cargo/appstore_logo.svg"
-                            alt="App Store"
-                            className="h-12 w-auto cursor-pointer p-2 backdrop-blur-md"
-                        />
-                    </div>
-
-                    {/* Play Store */}
-                    <div className="border-1-white m-4 border bg-black/50 bg-transparent transition hover:border-[#00B9EC]">
-                        <img
-                            src="/cargo/playstore_logo.svg"
-                            alt="Play Store"
-                            className="h-12 w-auto cursor-pointer p-2 backdrop-blur-md"
-                        />
-                    </div>
-                </div>
-            </div>
+            <div className="absolute inset-0 z-20 mb-20 flex flex-col-reverse items-center justify-center gap-6 px-24 text-center font-stan text-white sm:flex-row sm:justify-between sm:px-14 sm:text-left"></div>
 
             {/* Bottom Row */}
             <div className="absolute bottom-6 left-0 z-30 mb-16 flex w-full flex-col items-center justify-center gap-4 px-8 text-center font-manrope sm:flex-row sm:justify-between sm:px-14 sm:text-left">
-                <div className="w-max-xl flex flex-col items-start space-x-32 font-stan text-sm font-light text-white sm:flex-row sm:text-base md:text-lg">
-                    <span className="max-w-lg">{t("description.text")}</span>
-                    <span
-                        className={`px-4 ${isArabic ? "hidden sm:block" : "hidden"}`}
-                    ></span>
-                    <button
-                        onClick={() => {
-                            const target =
-                                document.getElementById("quote-section");
-                            if (target) {
-                                target.scrollIntoView({ behavior: "smooth" });
-                            }
-                        }}
-                        className="relative mt-4 rounded-full border border-white bg-transparent px-5 py-2 font-manrope text-sm text-white transition hover:border-transparent hover:bg-[#00B9EC] sm:px-8 sm:py-3"
-                    >
-                        {t("buttons.get_quote")}
-                        <img
-                            src="/cargo/herosection/right_arrow.svg"
-                            alt="arrow"
-                            className={`inline-block h-4 w-4 md:ml-2 ${isArabic ? "mb-[3px] ml-0" : "mb-[3px] ml-2"}`}
-                        />
-                    </button>
-                </div>
-
-                <div className="flex justify-center pr-3 sm:justify-end">
-                    <a
-                        href="https://wa.me/97125630364"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <img
-                            src="/cargo/herosection/whatsapp_logo.svg"
-                            alt="Whatsapp"
-                            className="h-10 w-auto cursor-pointer transition-transform hover:scale-105 sm:h-12 md:h-14"
-                        />
-                    </a>
-                </div>
+                
             </div>
         </section>
     );
