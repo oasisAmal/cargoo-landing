@@ -416,44 +416,39 @@ const Section8: React.FC = () => {
                     throw new Error(`HTTP error! status: ${res.status}`);
                 }
 
-                // Assuming the list endpoint returns an array of article objects
-                const apiData: any[] = await res.json();
+                const json = await res.json();
+                const apiData = json.data; // ✅ FIX
 
-                const mappedBlogs: Blog[] = apiData.slice(0, 4).map((item) => {
-                    // --- Dynamic Title Localization Logic ---
-                    let localizedTitle = item.name || "Untitled Article"; // Fallback to default 'name'
+                const mappedBlogs: Blog[] = apiData
+                    .slice(0, 4)
+                    .map((item: any) => {
+                        let localizedTitle = item.name ?? "Untitled Article";
 
-                    if (
-                        item.named &&
-                        item.named.title &&
-                        Array.isArray(item.named.title)
-                    ) {
-                        // Find the object matching the required language ID
-                        const titleEntry = item.named.title.find(
-                            (entry: any) => entry[langId],
-                        );
+                        if (Array.isArray(item?.named?.title)) {
+                            const titleEntry = item.named.title.find(
+                                (entry: any) => entry[langId],
+                            );
 
-                        if (titleEntry) {
-                            localizedTitle = titleEntry[langId];
+                            if (titleEntry?.[langId]) {
+                                localizedTitle = titleEntry[langId];
+                            }
                         }
-                    }
-                    // --- ------------------------------- ---
 
-                    return {
-                        date: item.createdAt
-                            ? new Date(item.createdAt).toLocaleDateString(
-                                  "en-US",
-                                  {
-                                      year: "numeric",
-                                      month: "short",
-                                      day: "numeric",
-                                  },
-                              )
-                            : "Unknown Date",
-                        title: localizedTitle, // Use the localized title
-                        img: item.image || "/cargo/section8/default.jpg",
-                    };
-                });
+                        return {
+                            date: item.createdAt
+                                ? new Date(item.createdAt).toLocaleDateString(
+                                      "en-US",
+                                      {
+                                          year: "numeric",
+                                          month: "short",
+                                          day: "numeric",
+                                      },
+                                  )
+                                : "Unknown Date",
+                            title: localizedTitle,
+                            img: item.image || "/cargo/section8/default.jpg",
+                        };
+                    });
 
                 setBlogs(mappedBlogs);
             } catch (error) {
@@ -463,9 +458,8 @@ const Section8: React.FC = () => {
             }
         };
 
-        // Re-run useEffect when the language changes
         fetchBlogs();
-    }, [langId, i18n.language]);
+    }, [langId]);
 
     return (
         // 2. Add dir attribute for RTL support
