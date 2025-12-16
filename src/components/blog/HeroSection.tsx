@@ -4,7 +4,11 @@ import { Menu, X } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import i18n from "../../i18n";
 
-const HeroSection: React.FC = () => {
+interface HeroSectionProps {
+    blogId?: string;
+}
+
+const HeroSection: React.FC<HeroSectionProps> = ({ blogId }) => {
     const { t } = useTranslation();
     const isArabic = i18n.language === "ar";
 
@@ -41,20 +45,16 @@ const HeroSection: React.FC = () => {
                 alt="Hero Background"
             />
 
-            {/* Dark overlay */}
             <div className="absolute inset-0 bg-black/30" />
 
-            {/* Top Navbar */}
             <div className="absolute left-0 top-0 z-30 w-full px-4 py-4 md:px-14 md:py-6">
                 <div className="flex items-center justify-between">
-                    {/* Logo */}
                     <img
                         src="/cargo/herosection/cargo_logo.svg"
                         alt="Cargo Logo"
                         className="h-8 w-auto sm:h-10 md:h-12"
                     />
 
-                    {/* Desktop Navigation */}
                     <nav className="hidden flex-wrap items-center justify-center gap-4 rounded-full bg-black/20 px-8 py-2 text-xs text-white sm:text-sm md:flex md:gap-8 md:px-8">
                         <a
                             href="/"
@@ -93,14 +93,12 @@ const HeroSection: React.FC = () => {
                                             >
                                                 <span>{value}</span>
 
-                                                {/* default arrow */}
                                                 <img
                                                     src="/cargo/herosection/right_arrow.svg"
                                                     className="block h-4 w-4 hover:hidden"
                                                     alt="arrow"
                                                 />
 
-                                                {/* arrow on hover */}
                                                 <img
                                                     src="/cargo/herosection/right_arrow_white.svg"
                                                     className="hidden h-4 w-4 hover:block"
@@ -120,7 +118,6 @@ const HeroSection: React.FC = () => {
                             {t("navbar.blogs")}
                         </a>
 
-                        {/* Language dropdown (same as before) */}
                         <div className="group relative">
                             <button
                                 onClick={toggleLanguages}
@@ -304,9 +301,7 @@ const HeroSection: React.FC = () => {
             <div className="absolute inset-0 z-20 mb-20 flex flex-col-reverse items-center justify-center gap-6 px-24 text-center font-stan text-white sm:flex-row sm:justify-between sm:px-14 sm:text-left"></div>
 
             {/* Bottom Row */}
-            <div className="absolute bottom-6 left-0 z-30 mb-16 flex w-full flex-col items-center justify-center gap-4 px-8 text-center font-manrope sm:flex-row sm:justify-between sm:px-14 sm:text-left">
-                
-            </div>
+            <div className="absolute bottom-6 left-0 z-30 mb-16 flex w-full flex-col items-center justify-center gap-4 px-8 text-center font-manrope sm:flex-row sm:justify-between sm:px-14 sm:text-left"></div>
         </section>
     );
 };

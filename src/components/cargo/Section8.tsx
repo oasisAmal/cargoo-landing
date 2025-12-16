@@ -328,80 +328,26 @@
 // export default Section8;
 
 import React, { useEffect, useState } from "react";
-import { useTranslation } from "react-i18next"; // <-- Import useTranslation
+import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 interface Blog {
+    id: number | string;
     date: string;
     title: string;
     img: string;
 }
 
-const mockApiResponse = [
-    {
-        name: "1914 translation by H. Rackham",
-        named: {
-            title: [
-                { "1": "1914 translation by H. Rackham" },
-                { "2": "ترجمة عام 1914 بواسطة هـ. راكهام" },
-                { "3": "H. Rackham کا 1914 ترجمہ" },
-            ],
-        },
-        id: 1,
-        image: "http://admin.cargooapp.com/uploads/image/article_image/20251128T073646904Z056595.jpg",
-        createdAt: "2025-11-28T06:12:43.050Z",
-    },
-    {
-        name: "Logistics Safety Standards",
-        named: {
-            title: [
-                { "1": "Logistics Safety Standards" },
-                { "2": "معايير السلامة اللوجستية" },
-            ],
-        },
-        id: 2,
-        image: "/cargo/section8/blog2.jpg",
-        createdAt: "2025-11-29T10:20:00.000Z",
-    },
-    {
-        name: "On-Time Freight Delivery",
-        named: {
-            title: [
-                { "1": "On-Time Freight Delivery" },
-                { "2": "تسليم الشحن في الوقت المحدد" },
-            ],
-        },
-        id: 3,
-        image: "/cargo/section8/blog3.jpg",
-        createdAt: "2025-11-30T08:00:00.000Z",
-    },
-    {
-        name: "Warehouse Optimization",
-        named: {
-            title: [
-                { "1": "Warehouse Optimization" },
-                { "2": "تحسين المستودعات" },
-            ],
-        },
-        id: 4,
-        image: "/cargo/section8/blog4.jpg",
-        createdAt: "2025-12-01T12:30:00.000Z",
-    },
-];
-
 const Section8: React.FC = () => {
-    // 1. Initialize translation hook
     const { t, i18n } = useTranslation();
 
     const [blogs, setBlogs] = useState<Blog[]>([]);
     const [isLoading, setIsLoading] = useState(true);
 
-    // Get current language and derived properties
     const currentLang = i18n.language;
     const isArabic = currentLang === "ar";
-    // Map Arabic ('ar') to ID '2', and use default '1' otherwise (based on your API sample)
     const langId = isArabic ? "2" : "1";
 
-    // Set text direction
     const dir = isArabic ? "rtl" : "ltr";
 
     useEffect(() => {
@@ -417,7 +363,7 @@ const Section8: React.FC = () => {
                 }
 
                 const json = await res.json();
-                const apiData = json.data; // ✅ FIX
+                const apiData = json.data;
 
                 const mappedBlogs: Blog[] = apiData
                     .slice(0, 4)
@@ -435,6 +381,7 @@ const Section8: React.FC = () => {
                         }
 
                         return {
+                            id: item.id,
                             date: item.createdAt
                                 ? new Date(item.createdAt).toLocaleDateString(
                                       "en-US",
@@ -462,31 +409,24 @@ const Section8: React.FC = () => {
     }, [langId]);
 
     return (
-        // 2. Add dir attribute for RTL support
         <>
             {blogs.length > 0 && (
                 <section
                     dir={isArabic ? "rtl" : "ltr"}
                     className="clip-top-shape mt-28 w-full overflow-hidden bg-[#F2F2F2] pb-20 pt-28 font-stan"
                 >
-                    {/* --- Header Section --- */}
                     <div className="px-6 md:px-12">
                         <p className="mb-6 flex w-full items-center justify-start gap-2 text-xl font-bold text-[#64748B]">
                             <img
                                 src="/cargo/herosection/right_arrow_color.svg"
                                 alt="colored arrow"
-                                // Rotate arrow for Arabic
                                 className={`h-4 w-4 ${isArabic ? "rotate-180" : ""}`}
                             />
-                            {/* 3. Localize Static Text (use t('key')) */}
                             {t("latestNews").toUpperCase()}
                         </p>
-
-                        {/* <p className="mb-8 flex w-full flex-col text-left text-3xl font-bold leading-[1.1] sm:text-4xl md:text-5xl"> */}
                         <p
                             className={`mb-6 flex w-full items-center gap-2 text-3xl font-bold sm:text-4xl md:text-5xl ${isArabic ? "flex-row-reverse justify-end" : "justify-start"}`}
                         >
-                            {/* Use dangerouslySetInnerHTML or t() for multi-line headers */}
                             <span
                                 dangerouslySetInnerHTML={{
                                     __html: t("insightsFromTheFieldTitle"),
@@ -495,7 +435,6 @@ const Section8: React.FC = () => {
                         </p>
                     </div>
 
-                    {/* --- Blog Cards Section --- */}
                     <section className="mt-20 w-full px-6 md:px-12">
                         {isLoading ? (
                             <p className="text-center text-gray-600">
@@ -507,40 +446,43 @@ const Section8: React.FC = () => {
                             </p>
                         ) : (
                             <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-                                {blogs.map((blog, i) => (
-                                    <div
-                                        key={i}
-                                        className="flex flex-col overflow-hidden border border-gray-200 bg-white"
+                                {blogs.map((blog) => (
+                                    <Link
+                                        key={blog.id}
+                                        to={`/blogs/${blog.id}`}
+                                        className="group block"
                                     >
-                                        <img
-                                            src={blog.img}
-                                            alt={blog.title}
-                                            className="h-56 w-full object-cover p-2"
-                                            style={{
-                                                clipPath:
-                                                    "polygon(0 0, 100% 0, 100% 80%, 83% 100%, 0 100%)",
-                                            }}
-                                        />
+                                        <div className="flex h-full cursor-pointer flex-col overflow-hidden border border-gray-200 bg-white transition-transform duration-300 group-hover:-translate-y-1">
+                                            <img
+                                                src={blog.img}
+                                                alt={blog.title}
+                                                className="h-56 w-full object-cover p-2"
+                                                style={{
+                                                    clipPath:
+                                                        "polygon(0 0, 100% 0, 100% 80%, 83% 100%, 0 100%)",
+                                                }}
+                                            />
 
-                                        <div className="flex flex-col justify-between p-5">
-                                            <p className="text-sm font-semibold tracking-widest text-[#64748B]">
-                                                {blog.date.toUpperCase()}
-                                            </p>
+                                            <div className="flex flex-col justify-between p-5">
+                                                <p className="text-sm font-semibold tracking-widest text-[#64748B]">
+                                                    {blog.date.toUpperCase()}
+                                                </p>
 
-                                            <h2 className="mb-4 mt-2 text-lg font-bold leading-snug text-gray-900">
-                                                {blog.title}
-                                            </h2>
+                                                <h2 className="mb-4 mt-2 text-lg font-bold leading-snug text-gray-900">
+                                                    {blog.title}
+                                                </h2>
 
-                                            <div className="flex items-center gap-2 border-t border-gray-200 pt-3 text-base font-semibold text-[#64748B]">
-                                                {t("readMore")}
-                                                <img
-                                                    src="/cargo/herosection/right_arrow_color.svg"
-                                                    alt="arrow"
-                                                    className="h-4 w-4 text-[#00B9EC]"
-                                                />
+                                                <div className="flex items-center gap-2 border-t border-gray-200 pt-3 text-base font-semibold text-[#64748B]">
+                                                    {t("readMore")}
+                                                    <img
+                                                        src="/cargo/herosection/right_arrow_color.svg"
+                                                        alt="arrow"
+                                                        className="h-4 w-4"
+                                                    />
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </Link>
                                 ))}
                             </div>
                         )}

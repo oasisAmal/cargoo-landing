@@ -5,7 +5,7 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Cargo from "./routes/cargo";
-import Blog from "./routes/blog";
+import Blogs from "./routes/blog";
 import "./i18n";
 
 // React Query client
@@ -28,7 +28,7 @@ root.render(
                 <Routes>
                     <Route path="/" element={<Cargo />} />
                     <Route path="/home" element={<Cargo />} />
-                    <Route path="/blogs" element={<Blog />} />
+                    <Route path="/blogs/:id" element={<Blogs />} />
                 </Routes>
             </BrowserRouter>
         </QueryClientProvider>
