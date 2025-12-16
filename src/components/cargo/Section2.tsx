@@ -1,67 +1,69 @@
+import { useTranslation } from "react-i18next";
+
 const Section2: React.FC = () => {
+    const { t, i18n } = useTranslation();
+    const isArabic = i18n.language === "ar";
+
+    const cards = [
+        {
+            icon: "/cargo/section2/section2_icon1.svg",
+            title: t("section2.cards.internationalShipping.title"),
+            desc: t("section2.cards.internationalShipping.desc"),
+        },
+        {
+            icon: "/cargo/section2/section2_icon2.svg",
+            title: t("section2.cards.domesticDelivery.title"),
+            desc: t("section2.cards.domesticDelivery.desc"),
+        },
+        {
+            icon: "/cargo/section2/section2_icon3.svg",
+            title: t("section2.cards.seaFreight.title"),
+            desc: t("section2.cards.seaFreight.desc"),
+        },
+        {
+            icon: "/cargo/section2/section2_icon4.svg",
+            title: t("section2.cards.customsClearance.title"),
+            desc: t("section2.cards.customsClearance.desc"),
+        },
+    ];
+
     return (
-        <section className="font-stan clip-top-shape mt-28 w-full overflow-hidden bg-[#F2F2F2] pb-20 pt-28">
+        <section
+            className={`clip-top-shape mt-28 w-full overflow-hidden bg-[#F2F2F2] pb-20 pt-28 font-stan`}
+            dir={isArabic ? "rtl" : "ltr"}
+        >
             {/* Section Header */}
-            <div className="px-6 md:px-12">
-                <p className="mb-6 flex w-full items-center justify-start gap-2 text-xl font-bold text-[#64748B]">
+            <div className="w-full px-6 md:px-12">
+                <p
+                    className={`mb-6 flex w-full items-center gap-2 text-xl font-bold text-[#64748B] ${
+                        isArabic
+                            ? "flex-row-reverse justify-end text-right"
+                            : "justify-start"
+                    }`}
+                >
                     <img
                         src="/cargo/herosection/right_arrow_color.svg"
                         alt="colored arrow"
                         className="h-4 w-4"
                     />
-                    OUR SERVICES
+                    {t("section2.header")}
                 </p>
 
-                <p className="mb-8 flex w-full flex-col text-left text-3xl font-bold leading-[1.1] sm:text-4xl md:text-5xl">
-                    COMPREHENSIVE
+                <p
+                    className={`mb-8 flex w-full flex-col text-3xl font-bold leading-[1.1] sm:text-4xl md:text-5xl ${
+                        isArabic ? "text-right" : "text-left"
+                    }`}
+                >
+                    {t("section2.titleLine1")}
                     <br />
-                    LOGISTICS SERVICES
+                    {t("section2.titleLine2")}
                 </p>
             </div>
 
             {/* Cards Section */}
             <section className="px-6 py-10 md:px-12 md:py-16">
                 <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                    {[
-                        {
-                            icon: "/cargo/section2/section2_icon1.svg",
-                            title: (
-                                <>
-                                    International
-                                    <br />
-                                    Shipping
-                                </>
-                            ),
-                            desc: "Seamless freight services across continents. We handle all the complexities so you don't have to.",
-                        },
-                        {
-                            icon: "/cargo/section2/section2_icon2.svg",
-                            title: (
-                                <>
-                                    Domestic
-                                    <br />
-                                    Delivery
-                                </>
-                            ),
-                            desc: "Fast and dependable freight coverage across the country — from last-mile delivery to bulk transportation.",
-                        },
-                        {
-                            icon: "/cargo/section2/section2_icon3.svg",
-                            title: "Sea Freight",
-                            desc: "Cost-effective solutions for large and heavy cargo. Full container load (FCL) and less than container load (LCL) options available.",
-                        },
-                        {
-                            icon: "/cargo/section2/section2_icon4.svg",
-                            title: (
-                                <>
-                                    Customs
-                                    <br />
-                                    Clearance
-                                </>
-                            ),
-                            desc: "Avoid delays and penalties — our experts manage all documentation and regulations for swift border crossings.",
-                        },
-                    ].map((card, i) => (
+                    {cards.map((card, i) => (
                         <div
                             key={i}
                             className="relative bg-white p-8 sm:p-10 lg:p-12"
@@ -72,11 +74,16 @@ const Section2: React.FC = () => {
                         >
                             <img
                                 src={card.icon}
-                                alt="Service Icon"
-                                className="h-12 w-12 sm:h-14 sm:w-14"
+                                alt={card.title}
+                                className={`h-12 w-12 sm:h-14 sm:w-14 ${
+                                    isArabic ? "ml-auto" : ""
+                                }`}
                             />
-                            <div className="mt-4 text-left">
-                                <h3 className="text-xl font-bold text-gray-900 sm:text-2xl">
+
+                            <div
+                                className={`mt-4 ${isArabic ? "text-right" : "text-left"}`}
+                            >
+                                <h3 className="whitespace-pre-line text-xl font-bold text-gray-900 sm:text-2xl">
                                     {card.title}
                                 </h3>
                                 <p className="mt-3 text-sm leading-relaxed text-gray-600">

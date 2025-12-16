@@ -1,43 +1,66 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
-const Section7: React.FC = () => {
+const Section7: React.FC<{}> = ({}) => {
+    const { t, i18n } = useTranslation();
+    const isArabic = i18n.language === "ar";
     return (
-        <section className="relative flex flex-col items-center justify-center bg-white px-20 py-20 font-stan md:flex-row">
+        <section
+            dir={isArabic ? "rtl" : "ltr"} // RTL for Arabic
+            className="section7 relative mx-20 my-20 flex flex-col items-center justify-center bg-white font-stan md:flex-row"
+        >
             {/* Left content */}
-            <div className="flex w-full flex-col items-start bg-[#282A2C] p-6 py-20 md:w-2/5 md:px-12 m-4">
+            <div className="m-4 flex w-full flex-col items-start bg-[#282A2C] p-6 py-20 md:w-2/5 md:px-12">
                 <p className="mb-4 flex items-center gap-2 text-lg font-semibold text-white">
                     <img
                         src="/cargo/herosection/right_arrow_color.svg"
                         alt="arrow"
-                        className="h-4 w-4"
+                        className={`h-4 w-4 ${isArabic ? "rotate-180" : ""}`} // rotate arrow for Arabic
                     />
-                    OUR FOOTPRINTS
+                    {isArabic ? "بصماتنا" : "OUR FOOTPRINTS"}
                 </p>
 
-                <p className="mb-6 text-3xl font-bold text-white sm:text-4xl pb-12">
-                    Our Global Foot <br /> Prints in Numbers
-                </p>
+                <p
+                    className="mb-6 pb-12 text-3xl font-bold text-white sm:text-4xl"
+                    dangerouslySetInnerHTML={{
+                        __html: isArabic
+                            ? "بصماتنا العالمية <br /> بالأرقام"
+                            : "Our Global Foot <br /> Prints in Numbers",
+                    }}
+                />
 
                 <ul className="flex flex-col gap-8 font-stan text-sm text-gray-200 sm:text-base">
                     <li className="flex items-center gap-3">
                         <span className="text-4xl font-bold text-[#00b9ec]">
                             500+
                         </span>
-                        <span>Global Destinations Served</span>
+                        <span>
+                            {isArabic
+                                ? "وجهات عالمية مخدومة"
+                                : "Global Destinations Served"}
+                        </span>
                     </li>
                     <hr />
                     <li className="flex items-center gap-3">
                         <span className="text-4xl font-bold text-[#00b9ec]">
                             100+
                         </span>
-                        <span>Global Offices Worldwide</span>
+                        <span>
+                            {isArabic
+                                ? "مكاتب عالمية حول العالم"
+                                : "Global Offices Worldwide"}
+                        </span>
                     </li>
                     <hr />
                     <li className="flex items-center gap-3">
                         <span className="text-4xl font-bold text-[#00b9ec]">
                             96.9%
                         </span>
-                        <span>Customs Clearance Success Rate</span>
+                        <span>
+                            {isArabic
+                                ? "نسبة نجاح التخليص الجمركي"
+                                : "Customs Clearance Success Rate"}
+                        </span>
                     </li>
                 </ul>
             </div>

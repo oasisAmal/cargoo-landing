@@ -1,19 +1,26 @@
+import React from "react";
+import { useTranslation } from "react-i18next";
 const Section6: React.FC = () => {
+    const { t, i18n } = useTranslation();
+    const isArabic = i18n.language === "ar";
+
     const messages = [
-        "Reliable Transit Time",
-        "Global Freight Solutions",
-        "Real-time Shipment Tracking",
+        isArabic ? "وقت نقل موثوق" : "Reliable Transit Time",
+        isArabic ? "حلول شحن عالمية" : "Global Freight Solutions",
+        isArabic
+            ? "تتبع الشحنات في الوقت الفعلي"
+            : "Real-time Shipment Tracking",
     ];
 
     return (
-        <section className="mt-12 w-full overflow-hidden bg-gray-100 py-20 font-stan">
+        <section className="w-full overflow-hidden bg-gray-100 py-32 font-stan">
             <div className="relative flex h-24 items-center">
                 <div className="absolute w-full overflow-hidden">
                     <div className="ticker animate-ticker flex items-center whitespace-nowrap">
                         {messages.map((msg, idx) => (
                             <span
                                 key={idx}
-                                className="mx-8 inline-flex items-center text-3xl font-bold md:text-5xl uppercase"
+                                className="mx-8 inline-flex items-center text-3xl font-bold uppercase md:text-5xl"
                             >
                                 {msg}
                                 <img
@@ -27,7 +34,7 @@ const Section6: React.FC = () => {
                         {messages.map((msg, idx) => (
                             <span
                                 key={idx + messages.length}
-                                className="mx-8 inline-flex items-center text-3xl font-bold md:text-5xl uppercase"
+                                className="mx-8 inline-flex items-center text-3xl font-bold uppercase md:text-5xl"
                             >
                                 {msg}
                                 <img

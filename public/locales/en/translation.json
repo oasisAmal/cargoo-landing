@@ -1,0 +1,119 @@
+{
+    "navbar": {
+        "home": "Home",
+        "services": "Services",
+        "blogs": "Blogs",
+        "language": "Language",
+        "get_quote": "GET A QUOTE",
+        "all_services": "All Services"
+    },
+
+    "services_list": {
+        "contract": "Contract",
+        "general_transport": "General Transport",
+        "long_distance": "Long Distance & International Moves",
+        "expedited_freight": "Expedited Freight Services",
+        "expert_packing": "Expert Packing Services",
+        "reverse_logistics": "Return & Reverse Logistics",
+        "heavy_haul": "Heavy Haul & Oversized Loads"
+    },
+
+    "languages": {
+        "english": "English",
+        "arabic": "العربية"
+    },
+
+    "hero": {
+        "line1": "YOUR GLOBAL",
+        "line2": "FREIGHT PARTNER",
+        "line3": "— RELIABLE,",
+        "line4": "EFFICIENT, ON TIME"
+    },
+
+    "description": {
+        "text": "We provide comprehensive domestic and international logistics services, delivering customized solutions by land, sea, and air."
+    },
+
+    "buttons": {
+        "get_quote": "GET A QUOTE"
+    },
+
+    "apps": {
+        "app_store": "App Store",
+        "play_store": "Play Store"
+    },
+    "section1": {
+        "header_arrow_label": "ABOUT US",
+
+        "title_line1": "Connecting the World,",
+        "title_line2": "One Shipment at a Time",
+
+        "description1": "With years of proven expertise in logistics, we ensure the safe and efficient delivery of",
+        "description2": "cargo worldwide. From small parcels to large shipments, our customized solutions",
+        "description3": "guarantee on-time delivery and full transparency every step of the way.",
+
+        "sub_section_title_line1": "Driven by Logistics.",
+        "sub_section_title_line2": "Powered by People.",
+
+        "about_us_button": "About Us",
+
+        "stats": {
+            "experience_years_number": "01+",
+            "experience_years_label": "Years of Experience",
+            "experience_years_description1": "We’ve built our",
+            "experience_years_description2": "reputation on reliability,",
+            "experience_years_description3": "transparency,",
+            "experience_years_description4": "and innovation.",
+
+            "shipments_number": "293k+",
+            "shipments_label": "Shipments Delivered",
+            "shipments_description1": "Our experience spans",
+            "shipments_description2": "over a million",
+            "shipments_description3": "successful freight",
+            "shipments_description4": "movements — by air,",
+            "shipments_description5": "sea, and land."
+        }
+    },
+    "section2": {
+        "header": "OUR SERVICES",
+        "titleLine1": "COMPREHENSIVE",
+        "titleLine2": "LOGISTICS SERVICES",
+        "cards": {
+            "internationalShipping": {
+                "title": "International\nShipping",
+                "desc": "Seamless freight services across continents. We handle all the complexities so you don't have to."
+            },
+            "domesticDelivery": {
+                "title": "Domestic\nDelivery",
+                "desc": "Fast and dependable freight coverage across the country — from last-mile delivery to bulk transportation."
+            },
+            "seaFreight": {
+                "title": "Sea\nFreight",
+                "desc": "Cost-effective solutions for large and heavy cargo. Full container load (FCL) and less than container load (LCL) options available."
+            },
+            "customsClearance": {
+                "title": "Customs\nClearance",
+                "desc": "Avoid delays and penalties — our experts manage all documentation and regulations for swift border crossings."
+            }
+        }
+    },
+    "insightsFromTheFieldTitle": "INSIGHTS FROM<br />THE FIELD",
+    "latestNews": "LATEST NEWS",
+    "readMore": "Read More",
+    "loadingBlogs": "Loading Blogs...",
+    "noRecentArticles": "No Recent Articles Found.",
+    "faq": {
+        "sectionTitle": "FAQ",
+        "mainHeading": "GOT QUESTIONS ?<br />WE'VE GOT ANSWERS",
+        "q1": "What types of cargo do you handle?",
+        "a1": "We handle a wide range of cargo, including general freight, heavy equipment, perishables, hazardous materials, and time-sensitive shipments. Contact us for custom logistics solutions for your cargo.",
+        "q2": "Do you provide international shipping services?",
+        "a2": "Yes, we provide comprehensive international shipping services via air, sea, and land to over 500 global destinations.",
+        "q3": "How can I get a quote for my shipment?",
+        "a3": "You can get a quote by clicking on the 'GET A QUOTE' button on our website or by contacting our customer service team directly with your shipment details.",
+        "q4": "Can I track my shipment in real time?",
+        "a4": "Yes, we offer real-time tracking for all shipments. You can track your shipment using the tracking number provided at the time of booking.",
+        "q5": "Do you offer customs clearance services?",
+        "a5": "Yes, we provide comprehensive customs clearance services to ensure your shipments comply with all regulations and reach their destination without delays."
+    }
+}
