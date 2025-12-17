@@ -297,11 +297,61 @@ const HeroSection: React.FC<HeroSectionProps> = ({ blogId }) => {
                 )}
             </div>
 
-            {/* Center Hero Text */}
-            <div className="absolute inset-0 z-20 mb-20 flex flex-col-reverse items-center justify-center gap-6 px-24 text-center font-stan text-white sm:flex-row sm:justify-between sm:px-14 sm:text-left"></div>
+            {/* Center Hero Content */}
+            <div className="absolute inset-0 z-20 flex items-center px-4 pt-20 font-stan text-white sm:px-14 sm:pt-0 md:mt-8">
+                <div className="grid w-full grid-cols-1 items-center gap-6 sm:grid-cols-3">
+                    {/* Left Spacer */}
+                    <div className="hidden sm:block" />
 
-            {/* Bottom Row */}
-            <div className="absolute bottom-6 left-0 z-30 mb-16 flex w-full flex-col items-center justify-center gap-4 px-8 text-center font-manrope sm:flex-row sm:justify-between sm:px-14 sm:text-left"></div>
+                    {/* Center Text */}
+                    <div className="text-center">
+                        <h1 className="mb-2 text-2xl font-semibold uppercase leading-tight sm:mb-4 sm:text-5xl">
+                            Blog Page
+                        </h1>
+                        <p className="mx-auto max-w-xl text-xs uppercase tracking-wide text-gray-200 sm:text-lg">
+                            <span className="text-[#00B9EC]">Home</span> / Blog
+                            Page
+                        </p>
+                    </div>
+
+                    {/* Right Icons */}
+                    <div className="mt-6 flex items-center justify-center gap-3 sm:mt-0 sm:flex-col sm:items-end">
+                        {/* App Store */}
+                        <div className="border-1-white m-4 my-1 border bg-black/50 bg-transparent transition hover:border-[#00B9EC]">
+                            <img
+                                src="/cargo/appstore_logo.svg"
+                                alt="App Store"
+                                className="h-10 w-auto cursor-pointer p-2 backdrop-blur-md"
+                            />
+                        </div>
+
+                        {/* Play Store */}
+                        <div className="border-1-white m-4 my-1 border bg-black/50 bg-transparent transition hover:border-[#00B9EC]">
+                            <img
+                                src="/cargo/playstore_logo.svg"
+                                alt="Play Store"
+                                className="h-10 w-auto cursor-pointer p-2 backdrop-blur-md"
+                            />
+                        </div>
+
+                        {/* WhatsApp */}
+                        <div className="border-1-white m-4 my-1 transition">
+                            <a
+                                href="https://wa.me/97125630364"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="transition-transform hover:scale-105"
+                            >
+                                <img
+                                    src="/cargo/herosection/whatsapp_logo.svg"
+                                    alt="Whatsapp"
+                                    className="h-8 sm:h-11"
+                                />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
     );
 };
