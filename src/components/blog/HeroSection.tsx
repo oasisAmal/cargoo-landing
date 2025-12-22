@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { Menu, X } from "lucide-react";
 import { useTranslation } from "react-i18next";
@@ -8,13 +8,69 @@ interface HeroSectionProps {
     blogId?: string;
 }
 
+interface BlogHeroData {
+    title: string;
+    image: string;
+    date: string;
+}
+
+const getLocalizedValue = (
+    arr: any[] | undefined,
+    langId: string,
+    fallback = "",
+) => {
+    if (!Array.isArray(arr)) return fallback;
+    const entry = arr.find((item) => item[langId]);
+    return entry?.[langId] ?? fallback;
+};
+
 const HeroSection: React.FC<HeroSectionProps> = ({ blogId }) => {
     const { t } = useTranslation();
-    const isArabic = i18n.language === "ar";
-
     const [isServicesOpen, setIsServicesOpen] = useState(false);
     const [isLanguagesOpen, setIsLanguagesOpen] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const isArabic = i18n.language === "ar";
+    const langId = isArabic ? "2" : "1";
+
+    const [blog, setBlog] = useState<BlogHeroData | null>(null);
+
+    useEffect(() => {
+        if (!blogId) {
+            setBlog(null);
+            return;
+        }
+
+        const fetchBlogHero = async () => {
+            try {
+                const res = await fetch(
+                    `https://admin.cargooapp.com/api/articles/show/${blogId}`,
+                );
+                const json = await res.json();
+
+                const title = getLocalizedValue(
+                    json?.named?.title,
+                    langId,
+                    json?.name,
+                );
+
+                setBlog({
+                    title,
+                    image: json.image,
+                    date: json.createdAt
+                        ? new Date(json.createdAt).toLocaleDateString("en-US", {
+                              year: "numeric",
+                              month: "long",
+                              day: "numeric",
+                          })
+                        : "",
+                });
+            } catch (e) {
+                console.error(e);
+            }
+        };
+
+        fetchBlogHero();
+    }, [blogId, langId]);
 
     const toggleServices = () => {
         setIsServicesOpen((prev) => {
@@ -41,7 +97,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ blogId }) => {
         <section className="clip-bottom-shape scroll-y-hidden relative h-[calc(50vh+40px)] w-full overflow-hidden font-stan">
             <img
                 className="absolute left-0 top-0 h-full w-full object-cover"
-                src="/blog/banner.jpg"
+                src={blog?.image || "/blog/banner.jpg"}
                 alt="Hero Background"
             />
 

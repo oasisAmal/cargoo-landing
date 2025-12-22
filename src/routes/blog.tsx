@@ -16,7 +16,7 @@ export default function Blogs() {
     return (
         <div dir={direction} className="relative overflow-y-scroll bg-white">
             <HeroSection blogId={id} />
-            {hasId ? <Section1 /> : <Section2 blogId={id} />}
+            {hasId ? <Section1 blogId={id} /> : <Section2/>}
 
             <Footer />
         </div>

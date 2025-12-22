@@ -339,6 +339,8 @@ interface Blog {
 }
 
 const Section8: React.FC = () => {
+    const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
     const { t, i18n } = useTranslation();
 
     const [blogs, setBlogs] = useState<Blog[]>([]);

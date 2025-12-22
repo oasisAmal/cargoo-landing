@@ -29,6 +29,7 @@ root.render(
                     <Route path="/" element={<Cargo />} />
                     <Route path="/home" element={<Cargo />} />
                     <Route path="/blogs/:id" element={<Blogs />} />
+                    <Route path="/blogs" element={<Blogs />} />
                 </Routes>
             </BrowserRouter>
         </QueryClientProvider>
